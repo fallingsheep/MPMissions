@@ -103,5 +103,7 @@ if (!isDedicated) then {
 //Start Dynamic Weather
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
+//admin tools
+execVM "admintools\Eexecute.sqf";
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
