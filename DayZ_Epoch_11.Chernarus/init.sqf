@@ -49,6 +49,9 @@ dayz_fullMoonNights = true;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
+//////////////////////////////////BASE BUILD//////////////////////////////////
+call compile preprocessFileLineNumbers "dayz_code\init\variables.sqf";							//Initializes custom variables
+//////////////////////////////////BASE BUILD//////////////////////////////////
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";				//Initilize the publicVariable event handlers
 progressLoadingScreen 0.2;
@@ -57,6 +60,10 @@ progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
+//////////////////////////////////BASE BUILD//////////////////////////////////
+call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";							//Compile custom compiles
+call compile preprocessFileLineNumbers "dayz_code\init\settings.sqf";							//Initialize custom clientside settings
+//////////////////////////////////BASE BUILD//////////////////////////////////
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
@@ -87,8 +94,10 @@ if (!isDedicated) then {
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
 };
-
-#include "\z\addons\dayz_code\system\REsec.sqf"
+//////////////////////////////////BASE BUILD//////////////////////////////////
+#include "REsec\REsec.sqf"
+//#include "\z\addons\dayz_code\system\REsec.sqf"
+//////////////////////////////////BASE BUILD//////////////////////////////////
 
 //Start Dynamic Weather
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
