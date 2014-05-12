@@ -15,7 +15,6 @@ _inVehicle = (_vehicle != player);
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
-
 //####----####----####---- Base Building 1.3 Start ----####----####----####
 	_currentSkin = typeOf(player);
 	_hasToolbox = "ItemToolbox" in items player;
@@ -141,7 +140,6 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 		s_player_guardToggle = -1;
 	};
 //####----####----####---- Base Building 1.3 END ----####----####----####
-
 _nearLight = 	nearestObject [player,"LitObject"];
 _canPickLight = false;
 if (!isNull _nearLight) then {
@@ -454,15 +452,14 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 	// Remove Object
 	if((typeOf(cursortarget) in allremovables)&& (_ownerID != "0") && (_hasToolbox || _baseBuildAdmin || _baseBuildLAdmin) && _canDo && !remProc && !procBuild && !removeObject) then {
-	if(_player_deleteBuild) then {
 		if (s_player_deleteBuild < 0) then {
-			s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\remove.sqf",_cursorTarget, 1, true, true, "", ""];
+			s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "dayz_code\actions\player_remove.sqf",cursorTarget, 1, false, true, "", ""];
 		};
 	} else {
 		player removeAction s_player_deleteBuild;
 		s_player_deleteBuild = -1;
 	};
-// Disarm Booby Trap Action
+	// Disarm Booby Trap Action
 	if((cursortarget iskindof "Grave" && cursortarget distance player < 2.5) && (_ownerID != "0") && (_hasToolbox || _baseBuildAdmin || _baseBuildLAdmin) && _canDo && !remProc && !procBuild) then {
 		if (s_player_disarmBomb < 0) then {
 			s_player_disarmBomb = player addaction [format[("<t color=""#F01313"">" + ("%1Disarm Bomb") +"</t>"),_adminText],"dayz_code\actions\player_disarmBomb.sqf","",1,true,true,"", ""];
@@ -482,22 +479,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 			if (s_player_bbLightMenu < 0) then {
 				s_player_bbLightMenu = player addAction [format[("<t color=""#4FF795"">" + ("%1Light Options") +"</t>"),_adminText], "dayz_code\actions\lights\lightMenu.sqf", _lever, 5, false, false, "", ""];
 			};
-
-				} else {
+		} else {
 			if (s_player_bbLightMenu < 0) then {
 				s_player_bbLightMenu = player addAction [format[("<t color=""#4FF795"">" + ("%1No Barrel/Tower Lights in Range of Flag") +"</t>"),_adminText], "", _lever, 5, false, true, "", ""];
 			};
-
-
-
-
-
-
-
-
-
-
-
 		};
 	} else {
 		player removeAction s_player_bbLightMenu;
@@ -509,20 +494,13 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		if (s_player_giveBaseOwnerAccess > 0) then { //Temp fix to prevent players having more than the max allowed number of shield gens
 		player removeAction s_player_giveBaseOwnerAccess;
 		s_player_giveBaseOwnerAccess = -1;
-
 		};
 		if (BBEnableZShield == 1) then {
 			if (s_player_bbZombieShield_on < 0) then {
 				s_player_bbZombieShield_on = player addAction [format[("<t color=""#FFF700"">" + ("%1Zombie Shield On") +"</t>"),_adminText], "dayz_code\actions\shield\bbZombieShield.sqf", [_lever, true], 6, true, true, "", ""];
 			};
-
-
-
-
-
 			if (s_player_bbZombieShield_off < 0) then {
 				s_player_bbZombieShield_off = player addAction [format[("<t color=""#FFF700"">" + ("%1Zombie Shield Off") +"</t>"),_adminText], "dayz_code\actions\shield\bbZombieShield.sqf", [_lever, false], 6, false, true, "", ""];
-
 			};
 		} else {
 			if (s_player_bbZombieShield_on < 0) then {
