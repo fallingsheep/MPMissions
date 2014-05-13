@@ -1183,7 +1183,7 @@ class Mission
                     vehicle="Logic";
                     leader=1;
                     skill=0.60000002;
-                    init="[this, 10000, 10000, 7, 19] exec ""fogs.sqs""";
+                    init="[this, 10000, 10000, 7, 19] exec ""scripts\fogs.sqs""";
                 };
             };
         };
