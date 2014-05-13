@@ -95,6 +95,9 @@ if (!isDedicated) then {
 	
 	//anti Hack
 	[] execVM "scripts\antihack.sqf";
+	
+	//Debug Monitor
+	[] execVM "scripts\debug_monitor.sqf";
 
 	//Lights
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
