@@ -48,7 +48,7 @@ if ((getPlayerUID player) in ["120958982",""]) then {
 				["Shields Menu", [5], "#USER:ShieldMenu", -5, [["expression", ""]], "1", "1"],
 				["Vehicle Menu", [6], "#USER:VehicleMenu", -5, [["expression", ""]], "1", "1"],
 				["Materials Menu", [7], "#USER:MaterialsMenu", -5, [["expression", ""]], "1", "1"],
-				["Building Kits Menu", [7], "#USER:BuildingKitsMenu", -5, [["expression", ""]], "1", "1"],
+				["Building Kits Menu", [8], "#USER:BuildingKitsMenu", -5, [["expression", ""]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]		
 		];};
@@ -105,8 +105,6 @@ ToolsMenu2 =
 [
 ["",true],
 		["Flip Vehicle", [2],  "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
-		["Base Building Supply Crate", [3],  "", -5, [["expression", format[_EXECscript1,"adminbasesupplycrate.sqf"]]], "1", "1"],
-		
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
@@ -123,21 +121,22 @@ MaterialsMenu =
 		["10 x Light Bulb", [8],  "", -5, [["expression", format[_EXECscript6,"10 x Light Bulb.sqf"]]], "1", "1"],
 		["10 x Lumber", [9],  "", -5, [["expression", format[_EXECscript6,"10 x Lumber.sqf"]]], "1", "1"],
 		["10 x Combo Lock", [10],  "", -5, [["expression", format[_EXECscript6,"10 x Combo Lock.sqf"]]], "1", "1"],
+		["10 x Mortar Bucket", [11],  "", -5, [["expression", format[_EXECscript6,"10 x Mortar Bucket.sqf"]]], "1", "1"],
+		["10 x Plywood", [12],  "", -5, [["expression", format[_EXECscript6,"10 x Plywood.sqf"]]], "1", "1"],
+		["10 x Poles", [13],  "", -5, [["expression", format[_EXECscript6,"10 x Poles.sqf"]]], "1", "1"],
+		["10 x Sandbag Large", [14],  "", -5, [["expression", format[_EXECscript6,"10 x Sandbag Large.sqf"]]], "1", "1"],
+		["10 x Sandbag", [15],  "", -5, [["expression", format[_EXECscript6,"10 x Sandbag.sqf"]]], "1", "1"],
+		["10 x Scrap Metal", [16],  "", -5, [["expression", format[_EXECscript6,"10 x Scrap Metal.sqf"]]], "1", "1"],
+		["10 x Tank Trap", [17],  "", -5, [["expression", format[_EXECscript6,"10 x Tank Trap.sqf"]]], "1", "1"],
+		["10 x Wire", [18],  "", -5, [["expression", format[_EXECscript6,"10 x Wire.sqf"]]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
-				["Next page", [12], "#USER:MaterialsMenu2", -5, [["expression", ""]], "1", "1"],
-				["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+				["Next page", [19], "#USER:MaterialsMenu2", -5, [["expression", ""]], "1", "1"],
+				["Exit", [20], "", -3, [["expression", ""]], "1", "1"]
 ];
 MaterialsMenu2 =
 [
 	["",true],	
-		["10 x Mortar Bucket", [2],  "", -5, [["expression", format[_EXECscript6,"10 x Mortar Bucket.sqf"]]], "1", "1"],
-		["10 x Plywood", [3],  "", -5, [["expression", format[_EXECscript6,"10 x Plywood.sqf"]]], "1", "1"],
-		["10 x Poles", [4],  "", -5, [["expression", format[_EXECscript6,"10 x Poles.sqf"]]], "1", "1"],
-		["10 x Sandbag Large", [5],  "", -5, [["expression", format[_EXECscript6,"10 x Sandbag Large.sqf"]]], "1", "1"],
-		["10 x Sandbag", [6],  "", -5, [["expression", format[_EXECscript6,"10 x Sandbag.sqf"]]], "1", "1"],
-		["10 x Scrap Metal", [7],  "", -5, [["expression", format[_EXECscript6,"10 x Scrap Metal.sqf"]]], "1", "1"],
-		["10 x Tank Trap", [8],  "", -5, [["expression", format[_EXECscript6,"10 x Tank Trap.sqf"]]], "1", "1"],
-		["10 x Wire", [9],  "", -5, [["expression", format[_EXECscript6,"10 x Wire.sqf"]]], "1", "1"],
+
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 				["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
