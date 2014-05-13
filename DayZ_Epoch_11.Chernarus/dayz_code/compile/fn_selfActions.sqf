@@ -1357,3 +1357,25 @@ if (_canDrink) then {
         s_player_drinkWater = -1;
     };
 // ----------------------------- \ Drink water / ----------------------
+//SUICIDESTART
+private ["_handGun"];
+_handGun = currentWeapon player;
+if ((_handGun in ["revolver_gold_EP1","glock17_EP1","M9","M9SD","Makarov","MakarovSD","revolver_EP1","UZI_EP1","Sa61_EP1","Colt1911"]) && (player ammo _handGun > 0)) then {
+    hasSecondary = true;
+} else {
+    hasSecondary = false;
+};
+if (player ammo _handGun == 1) then {
+    lastRound = true;
+} else {
+    lastRound = false;
+};
+if((speed player <= 1) && hasSecondary && lastRound && _canDo) then {
+    if (s_player_suicide < 0) then {
+		s_player_suicide = player addaction[("<t color=""#ff0000"">" + ("Commit Suicide") +"</t>"),"scripts\suicide_init.sqf",_handGun,0,false,true,"",""];
+    };
+} else {
+    player removeAction s_player_suicide;
+    s_player_suicide = -1;
+};
+//SUICIDEEND
