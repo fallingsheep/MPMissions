@@ -152,8 +152,6 @@ execVM "admintools\Activate.sqf";
 //Safe Zones
 [] execVM 'scripts\agn_SafeZoneCommander.sqf';
 
-// tow and lift
-[] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 //Fast Roping
 sleep 1; 
 _fast_rope = [] execVM "addons\BTC_fast_roping_init.sqf";

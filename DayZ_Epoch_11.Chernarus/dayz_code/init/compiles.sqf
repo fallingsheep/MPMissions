@@ -19,7 +19,10 @@
 		player_buildControls	= compile preprocessFileLineNumbers "custom\snap_build\player_buildControls.sqf";
 		snap_object		= compile preprocessFileLineNumbers "custom\snap_build\snap_object.sqf";
 	};
-
+	
+	//CANT TOW LOCKED VEHICLES
+	local_lockUnlock = compile preprocessFileLineNumbers "scripts\local_lockUnlock.sqf";
+	
 	//To Disable Loot and or Zombie Spawns in Base Build Objects
 	//player_spawnCheck = compile preprocessFileLineNumbers "dayz_code\compile\player_spawnCheck.sqf";
 	

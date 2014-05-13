@@ -1023,7 +1023,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_towing = -1;
 	};
 	*/
-
+	//TOWING
+	call compile preprocessFileLineNumbers 'addons\init.sqf';
 
     //Sleep
 	if(_isTent and _ownerID == dayz_characterID) then {
