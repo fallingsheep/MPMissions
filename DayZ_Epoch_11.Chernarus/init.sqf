@@ -117,7 +117,7 @@ if (!isDedicated) then {
 };
 //LIGHTS
 if (isServer) then {
-axe_server_lampObjs =    compile preprocessFileLineNumbers "lights\fnc_returnLampWS.sqf";
+axe_server_lampObjs =    compile preprocessFileLineNumbers "scripts\fnc_returnLampWS.sqf";
     "axeLampObjects" addPublicVariableEventHandler {_id = (_this select 1) spawn axe_server_lampObjs};
 };
 
