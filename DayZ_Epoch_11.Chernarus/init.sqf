@@ -130,3 +130,7 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 execVM "admintools\Activate.sqf";
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+
+//Fast Roping
+sleep 1; 
+_fast_rope = [] execVM "addons\BTC_fast_roping_init.sqf";
