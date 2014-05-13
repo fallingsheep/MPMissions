@@ -119,7 +119,7 @@ if (!isDedicated) then {
 [] execVM 'scripts\kh_actions.sqf'; 
 
 //////////////////////////////////BASE BUILD//////////////////////////////////
-#include "REsec\REsec.sqf"
+#include "REsec\REsec.sqf";
 //#include "\z\addons\dayz_code\system\REsec.sqf"
 //////////////////////////////////BASE BUILD//////////////////////////////////
 
@@ -129,7 +129,10 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 //admin tools
 execVM "admintools\Activate.sqf";
 
-#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
+
+//Safe Zones
+[] execVM 'scripts\agn_SafeZoneCommander.sqf';
 
 //Fast Roping
 sleep 1; 
