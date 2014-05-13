@@ -112,4 +112,22 @@ class CfgSounds
 	sound[]={sound\drink_water.ogg,1,1};
 	titles[] = {};
 	};
+	class nam
+	{
+    name = "Siren1";
+    sound[] = {sound\SirenLoopMono.ogg, db-6, 1.0};
+    titles[] = {""};
+	};
+	class eve
+	{
+    name = "Siren2";
+    sound[] = {sound\Sirens.ogg, db-6, 1.0};
+    titles[] = {""};
+	};
+	class puk
+	{
+    name = "Siren3";
+    sound[] = {sound\Sirens2.ogg, db-6, 1.0};
+    titles[] = {""};
+	};
 };
