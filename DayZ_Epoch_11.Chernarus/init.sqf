@@ -115,6 +115,8 @@ if (!isDedicated) then {
 	//Bus Route
 	[] execVM "busroute\player_axeBus.sqf";
 };
+//Auto Refuel
+[] execVM 'scripts\kh_actions.sqf'; 
 
 //////////////////////////////////BASE BUILD//////////////////////////////////
 #include "REsec\REsec.sqf"
