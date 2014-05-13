@@ -34,6 +34,8 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 //####----####----####---- Base Building 1.3 Start ----####----####----####
 	_currentSkin = typeOf(player);
 	_hasToolbox = "ItemToolbox" in items player;
+	_hasMatches    = "ItemMatchbox" in items player;
+	_hasETool 	= "ItemEtool" in items player;
 	_baseBuildAdmin = ((getPlayerUID player) in BBSuperAdminAccess);
 	_baseBuildLAdmin = ((getPlayerUID player) in BBLowerAdminAccess);
 	//Get objects that can't be targetted
@@ -738,7 +740,17 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
         player removeAction s_clothes;
         s_clothes = -1;
     };
-
+	
+	//BURY BODIES
+	if (!_isAlive and !_isZombie and !_isAnimal and _hasETool and _isMan and _canDo) then {
+        if (s_player_bury_human < 0) then {
+            s_player_bury_human = player addAction [format["Bury Body"], "scripts\bury_human.sqf",cursorTarget, 3, true, true, "", ""];
+        }
+    } else {
+        player removeAction s_player_bury_human;
+        s_player_bury_human = -1;
+    };
+	
 	// logic vars
 	_player_cook = false;
 	_player_boil = false;
@@ -794,6 +806,15 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		player removeAction s_player_fireout;
 		s_player_fireout = -1;
 	};
+	//BURN TENT
+	if(_isTent and _hasMatches and _canDo and !_isMan) then {
+        if (s_player_igniteTent < 0) then {
+            s_player_igniteTent = player addAction [format["Ignite Tent"], "scripts\tent_ignite.sqf",cursorTarget, 1, true, true, "", ""];
+        };
+    } else {
+        player removeAction s_player_igniteTent;
+        s_player_igniteTent = -1;
+    };
 	
 	//Packing my tent
 	if(_isTent and (player distance _cursorTarget < 3)) then {
@@ -1191,7 +1212,9 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	player removeAction s_player_bbLightMenu;
 	s_player_bbLightMenu = -1;
 //####----####----####---- Base Building 1.3 End ----####----####----####
-
+	
+	player removeAction s_player_bury_human;
+    s_player_bury_human = -1;
 
 	//Others
 	player removeAction s_player_forceSave;
