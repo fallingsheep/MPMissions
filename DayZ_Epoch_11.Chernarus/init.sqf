@@ -117,7 +117,8 @@ if (!isDedicated) then {
 };
 //LIGHTS
 if (!isDedicated) then {
-[] execVM "scripts\house_lights.sqf";
+	[] execVM "scripts\house_lights.sqf";
+	[] execVM "scripts\tower_lights.sqf";
 };
 //Auto Refuel
 [] execVM 'scripts\kh_actions.sqf'; 
