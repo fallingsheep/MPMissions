@@ -100,6 +100,16 @@ if (!isDedicated) then {
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
 };
+if (isServer) then {
+	//Bus Route
+	[true] execVM "busroute\init_bus.sqf";
+};
+
+if (!isDedicated) then {
+	//Bus Route
+	[] execVM "busroute\player_axeBus.sqf";
+};
+
 //////////////////////////////////BASE BUILD//////////////////////////////////
 #include "REsec\REsec.sqf"
 //#include "\z\addons\dayz_code\system\REsec.sqf"
