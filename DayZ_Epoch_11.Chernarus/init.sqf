@@ -116,9 +116,15 @@ if (!isDedicated) then {
 	[] execVM "busroute\player_axeBus.sqf";
 };
 //LIGHTS
+if (isServer) then {
+axe_server_lampObjs =    compile preprocessFileLineNumbers "lights\fnc_returnLampWS.sqf";
+    "axeLampObjects" addPublicVariableEventHandler {_id = (_this select 1) spawn axe_server_lampObjs};
+};
+
 if (!isDedicated) then {
 	[] execVM "scripts\house_lights.sqf";
 	[] execVM "scripts\tower_lights.sqf";
+	[] execVM "scripts\street_lights.sqf";
 };
 //Auto Refuel
 [] execVM 'scripts\kh_actions.sqf'; 
