@@ -2,6 +2,12 @@
 	For DayZ Epoch
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
+
+//disable plot pole
+DZE_requireplot = 0;
+//Admin teleport Fix
+DZE_teleport = [14000,14000,14000,14000,14000];
+
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
@@ -11,8 +17,7 @@ dayZ_instance =	11;					//The instance
 dayzHiveRequest = [];
 initialized = false;
 dayz_previousID = 0;
-//disable plot pole
-DZE_requireplot = 0; 
+
 //disable greeting menu 
 player setVariable ["BIS_noCoreConversations", true];
 //disable radio messages to be heard and shown in the left lower corner of the screen
