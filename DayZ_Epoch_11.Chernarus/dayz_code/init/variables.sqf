@@ -94,3 +94,6 @@
 	DZ_BB_Le = false; //Move Left
 	DZ_BB_Ri = false; //Move Right
 //####----####----####---- Base Building 1.3 End ----####----####----####
+
+//Drinkwater
+s_player_drinkWater = -1;
