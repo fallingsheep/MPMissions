@@ -178,6 +178,20 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	s_player_removeflare = -1;
 };
 
+// Taunt Nearby Zombies if player has hunting knife and has a "live" zombie targeted (35 or less distance to player)
+    if ((cursorTarget isKindOf "zZombie_base") and (alive cursorTarget) and !_inVehicle and _canDo and (player distance CursorTarget < 36)) then {
+      if (s_player_tauntzed < 0) then {
+        if (!_hasKnife) then {
+          s_player_tauntzed = player addAction [("<t color=""#A0A0A0"">" + ("Taunt nearby zombies (Bleed and Scream)") + "</t>"), "scripts\player_tauntnearbyzed.sqf",[], 1, false, true, "", ""];
+        } else {
+          s_player_tauntzed = player addAction [("<t color=""#FF3232"">" + ("Taunt nearby zombies (Bleed and Scream)") + "</t>"), "scripts\player_tauntnearbyzed.sqf",[], 1, false, true, "", ""];
+        };
+      };
+      } else {
+      player removeAction s_player_tauntzed;
+      s_player_tauntzed = -1;
+    };
+
 if (DZE_HeliLift) then {
 	_hasAttached = _vehicle getVariable["hasAttached",false];
 	if(_inVehicle and (_vehicle isKindOf "Air") and ((getPos _vehicle select 2) < 30) and (speed _vehicle < 5) and (typeName _hasAttached == "OBJECT")) then {
