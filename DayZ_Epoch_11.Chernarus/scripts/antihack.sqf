@@ -91,14 +91,15 @@ while {1 == 1} do {
 					//PVDZE_atp = [name player, dayz_characterID, _lastpos, _curPos, getPosATL player];
 					PVDZE_atp = format["TELEPORT REVERT for player UID#%1 from %2 to %3, %4 meters, now at %5", getPlayerUID player, _lastpos, _curPos, round(_lastpos distance _curpos), getPosATL player];
 					publicVariableServer "PVDZE_atp";
-				} else if ((getPlayerUID player) in ["120958982",""]) then {
-					_lastpos = _curpos;
-					_lastheight = _curheight;
 				}else{
 					_lastpos = _curpos;
 					_lastheight = _curheight;
 				};
 
+				_lasttime = _curtime;
+			}else if ((_lastVehicle == vehicle player) && ((getPlayerUID player) in ["120958982",""])) then {
+				_lastpos = _curpos;
+				_lastheight = _curheight;
 				_lasttime = _curtime;
 			};
 
