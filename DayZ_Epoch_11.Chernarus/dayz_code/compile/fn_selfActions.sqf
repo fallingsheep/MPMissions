@@ -1379,3 +1379,18 @@ if((speed player <= 1) && hasSecondary && lastRound && _canDo) then {
     s_player_suicide = -1;
 };
 //SUICIDEEND
+// ZOMBIE SHIELD START
+if (("TrashTinCan" in magazines player) && ("TrashJackDaniels" in magazines player) && ("PartEngine" in magazines player) && ("ItemJerrycan" in magazines player) && ("ItemToolbox" in items player)) then {
+    hasShield = true;
+} else {
+    hasShield = false;
+};
+if (hasShield) then {
+    if (zombieShield < 0) then {
+    zombieShield = player addAction [("<t color=""#00c362"">" + ("Anti-Zombie Emitter") +"</t>"),"scripts\zombieshield.sqf","",5,false,true,"",""];
+    };
+} else {
+    player removeAction zombieShield;
+    zombieShield = -1;
+};
+// ZOMBIE SHIELD END
