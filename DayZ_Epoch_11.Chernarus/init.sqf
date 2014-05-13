@@ -114,6 +114,9 @@ if (isServer) then {
 if (!isDedicated) then {
 	//Bus Route
 	[] execVM "busroute\player_axeBus.sqf";
+	
+	//Welcome Credits
+	[] execVM "scripts\Server_WelcomeCredits.sqf";
 };
 //LIGHTS
 if (isServer) then {
