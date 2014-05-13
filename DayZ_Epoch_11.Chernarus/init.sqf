@@ -115,6 +115,10 @@ if (!isDedicated) then {
 	//Bus Route
 	[] execVM "busroute\player_axeBus.sqf";
 };
+//LIGHTS
+if (!isDedicated) then {
+[] execVM "lights\house_lights.sqf";
+};
 //Auto Refuel
 [] execVM 'scripts\kh_actions.sqf'; 
 
