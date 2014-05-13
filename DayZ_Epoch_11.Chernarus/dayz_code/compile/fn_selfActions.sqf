@@ -14,6 +14,22 @@ _inVehicle = (_vehicle != player);
 
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
+// ---------------------------------------Krixes Self Bloodbag Start------------------------------------
+    _mags = magazines player;
+ 
+    // Krixes Self Bloodbag
+    if ("ItemBloodbag" in _mags) then {
+        hasBagItem = true;
+    } else { hasBagItem = false;};
+    if((speed player <= 1) && hasBagItem && _canDo) then {
+        if (s_player_selfBloodbag < 0) then {
+            s_player_selfBloodbag = player addaction[("<t color=""#c70000"">" + ("Self Bloodbag") +"</t>"),"scripts\player_selfbloodbag.sqf","",5,false,true,"", ""];
+        };
+    } else {
+        player removeAction s_player_selfBloodbag;
+        s_player_selfBloodbag = -1;
+    };
+// ---------------------------------------Krixes Self Bloodbag End------------------------------------
 
 //####----####----####---- Base Building 1.3 Start ----####----####----####
 	_currentSkin = typeOf(player);
