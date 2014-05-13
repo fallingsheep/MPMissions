@@ -1394,3 +1394,26 @@ if (hasShield) then {
     zombieShield = -1;
 };
 // ZOMBIE SHIELD END
+// Zombie Bait
+if (("ItemBloodbag" in magazines player) && ("FoodbeefRaw" in magazines player)) then {
+    hasBait = true;
+} else {
+    hasBait = false;
+};
+if (hasBait) then {
+    if (zombieBait < 0) then {
+zombieBait = player addAction [("<t color=""#c30000"">" + ("Place Zombie Bait") +"</t>"),"scripts\zombiebait.sqf","",5,false,true,"",""];
+    };
+} else {
+    player removeAction zombieBait;
+    zombieBait = -1;
+};
+// Exploding Zombie Bait
+if ((hasBait) && ("HandGrenade_West" in magazines player)) then {
+if (zombieBomb < 0) then {
+zombieBomb = player addAction [("<t color=""#c30000"">" + ("Place Exploding Bait") +"</t>"),"scripts\zombiebomb.sqf","",5,false,true,"",""];
+};
+} else {
+player removeAction zombieBomb;
+zombieBomb = -1;
+};

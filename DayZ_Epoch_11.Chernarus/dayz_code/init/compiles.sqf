@@ -1,8 +1,10 @@
 
 //Custom Self Actions File
 	fnc_usec_selfActions 				= compile preprocessFileLineNumbers "dayz_code\compile\fn_selfActions.sqf";
+// zombie bait/bomb
+	zombie_findTargetAgent =    compile preprocessFileLineNumbers "scripts\zombie_findTargetAgent.sqf";
 
-//Base Building 1.3 Specific Compiles
+	//Base Building 1.3 Specific Compiles
 	//player_build						= compile preprocessFileLineNumbers "dayz_code\actions\player_build.sqf";
 	player_build2 						= compile preprocessFileLineNumbers "dayz_code\compile\player_build2.sqf";
 	antiWall 							= compile preprocessFileLineNumbers "dayz_code\compile\antiWall.sqf";
@@ -11,7 +13,14 @@
 	refresh_build_recipe_list_dialog 	= compile preprocessFileLineNumbers "buildRecipeBook\refresh_build_recipe_list_dialog.sqf";
 	add_UIDCode  						= compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\add_UIDCode.sqf";
 	remove_UIDCode  					= compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
-//To Disable Loot and or Zombie Spawns in Base Build Objects
+
+	if (!isDedicated) then {
+		player_build		= compile preprocessFileLineNumbers "custom\snap_build\player_build.sqf";
+		player_buildControls	= compile preprocessFileLineNumbers "custom\snap_build\player_buildControls.sqf";
+		snap_object		= compile preprocessFileLineNumbers "custom\snap_build\snap_object.sqf";
+	};
+
+	//To Disable Loot and or Zombie Spawns in Base Build Objects
 	//player_spawnCheck = compile preprocessFileLineNumbers "dayz_code\compile\player_spawnCheck.sqf";
 	
 //Keybinds
