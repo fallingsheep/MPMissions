@@ -129,6 +129,13 @@ if (!isDedicated) then {
 //Auto Refuel
 [] execVM 'scripts\kh_actions.sqf'; 
 
+snowchance = 5; //5% chance to snow on server start/restart
+	if (isServer) then {
+		if((random 100) < snowchance)then{
+			[] execVM "scripts\effects.sqf"; //TODO- add random to snow and fog variables / make server side
+		};
+	};
+
 //////////////////////////////////BASE BUILD//////////////////////////////////
 #include "REsec\REsec.sqf";
 //#include "\z\addons\dayz_code\system\REsec.sqf"
