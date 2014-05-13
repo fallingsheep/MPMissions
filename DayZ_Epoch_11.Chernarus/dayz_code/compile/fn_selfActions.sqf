@@ -715,6 +715,16 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_studybody = -1;
 	};
 
+    //CLOTHES
+    if (_isMan and !_isAlive and !_isZombie and !_isAnimal) then {
+		if (s_clothes < 0) then {
+            s_clothes = player addAction [("<t color=""#FF0000"">" + ("Take Clothes") + "</t>"), "fixes\clothes.sqf",cursorTarget, 1, false, true, "",""];
+        };
+    } else {
+        player removeAction s_clothes;
+        s_clothes = -1;
+    };
+
 	// logic vars
 	_player_cook = false;
 	_player_boil = false;
@@ -1190,6 +1200,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_player_fillfuel = -1;
 	player removeAction s_player_studybody;
 	s_player_studybody = -1;
+	player removeAction s_clothes;
+    s_clothes = -1;
 	//Dog
 	player removeAction s_player_tamedog;
 	s_player_tamedog = -1;
