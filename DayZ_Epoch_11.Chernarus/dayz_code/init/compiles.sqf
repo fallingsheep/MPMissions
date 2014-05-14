@@ -6,7 +6,7 @@
 
 	//Base Building 1.3 Specific Compiles
 	//over ride build times
-	player_build						= compile preprocessFileLineNumbers "dayz_code\actions\player_build.sqf";
+	player_build						= compile preprocessFileLineNumbers "scripts\player_build.sqf";
 	
 	player_build2 						= compile preprocessFileLineNumbers "dayz_code\compile\player_build2.sqf";
 	antiWall 							= compile preprocessFileLineNumbers "dayz_code\compile\antiWall.sqf";
