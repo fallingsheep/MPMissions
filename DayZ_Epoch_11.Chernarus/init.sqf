@@ -2,7 +2,9 @@
 	For DayZ Epoch
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
-
+if ((getPlayerUID player) in ["120958982","admin2","admin3"]) exitWith {
+DZE_StaticConstructionCount = 1;
+};
 //disable plot pole
 DZE_requireplot = 0;
 //Admin teleport Fix
