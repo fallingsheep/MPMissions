@@ -30,12 +30,15 @@ _role2names = ["FallingSheep", "Deadsheep"];
 _role3 = "Current Version";
 _role3names = ["0.10 - Organised"];
 _role4 = "Server Mods - #1"; 
-_role4names = ["Bus Route", "Admin Tools","Bury Bodies","Drink Water","Burn Tents","Safezones","Taunt Zombie","Auto Refuel","DZAI","DZMS","Building Snapping"];
+_role4names = ["Bus Route", "Admin Tools","Bury Bodies","Drink Water","Burn Tents","Safezones"];
 _role5 = "Server Mods - #2";
-_role5names = ["Para Spawn", "Self-BloodBag", "Air Raids", "Animated Heli Crahes","Tent Sleep Heal", "Base Building 1.3", "Suicide", "Animated C130 Crahes"];
+_role5names = ["Para Spawn", "Self-BloodBag", "Air Raids", "Animated Heli Crahes","Tent Sleep Heal","Fog",];
 _role6 = "Server Mods - #3";
-_role6names = ["Zombie Bait", "Zombie Bomb", "Towing", "Debug Monitor","Salvage Parts", "Snow", "Fog", "Street Lights", "Tower Lights", "House Lights"];
-  
+_role6names = ["Zombie Bait", "Zombie Bomb", "Towing", "Debug Monitor","Salvage Parts", "Snow", "Street Lights", "Tower Lights"];
+_role7 = "Server Mods - #4";
+_role7names = ["Auto Refuel","DZAI","DZMS","Building Snapping", "Base Building 1.3", "Suicide", "Animated C130 Crahes"];
+_role8 = "Server Mods - #5";
+_role8names = ["House Lights","Taunt Zombie"
 {
 sleep 2;
 _memberFunction = _x select 0;
@@ -60,5 +63,7 @@ sleep (_onScreenTime);
 [_role3, _role3names],
 [_role4, _role4names],
 [_role5, _role5names],
-[_role6, _role6names]//make SURE the last one here does NOT have a , at the end
+[_role6, _role6names],
+[_role7, _role7names],
+[_role8, _role8names]//make SURE the last one here does NOT have a , at the end
 ];
