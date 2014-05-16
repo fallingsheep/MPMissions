@@ -40,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=3;
+		items=2;
 		class Item0
 		{
 			side="WEST";
@@ -1169,24 +1169,6 @@ class Mission
 				};
 			};
 		};
-		class Item2
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={6288.5488,304.98645,7825.8896};
-                    id=3;
-                    side="LOGIC";
-                    vehicle="Logic";
-                    leader=1;
-                    skill=0.60000002;
-                    init="[this, 10000, 10000, 7, 19] exec ""scripts\fogs.sqs""";
-                };
-            };
-        };
 
 	};
 	class Markers
