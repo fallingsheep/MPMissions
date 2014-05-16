@@ -27,7 +27,7 @@ class DRN_DIALOG
 		class btnBaltoa: RscButton
 		{
 			idc = 1602;
-			text = "Baltoa";
+			text = "Balota";
 			x = 0.573809 * safezoneW + safezoneX;
 			y = 0.382576 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
@@ -183,7 +183,7 @@ class DRN_DIALOG
 		class picBaltoa: RscPicture
 		{
 			idc = 1203;
-			text = "addons\Baltoa.paa";
+			text = "addons\Balota.paa";
 			x = 0.575468 * safezoneW + safezoneX;
 			y = 0.289757 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -264,7 +264,7 @@ class DRN_DIALOG
 		class picSolinchiny: RscPicture
 		{
 			idc = 1212;
-			text = "addons\Solinchiny.paa";
+			text = "addons\Solnichiny.paa";
 			x = 0.368137 * safezoneW + safezoneX;
 			y = 0.448558 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
