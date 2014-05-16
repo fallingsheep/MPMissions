@@ -1,3 +1,4 @@
+/*
 class RscButton
 {
 	access = 0;
@@ -29,6 +30,7 @@ class RscButton
 	offsetPressedY = 0.002;
 	borderSize = 0;
 };
+*/
 class DRN_DIALOG
 {
 	idd=-1;
@@ -192,7 +194,7 @@ class DRN_DIALOG
 			y = 0.366875 * safezoneH + safezoneY;
 			w = 0.0801985 * safezoneW;
 			h = 0.018875 * safezoneH;
-			tooltip = "Western Island has active bandits";
+			tooltip = "Good luck!";
 		};
 
 	};
