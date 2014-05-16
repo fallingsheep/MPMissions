@@ -105,6 +105,7 @@ ToolsMenu2 =
 [
 ["",true],
 		["Flip Vehicle", [2],  "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
+		["Delete Vehicle/Crate", [2],  "", -5, [["expression", format[_EXECscript1,"deletevehicleorcrate.sqf"]]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
