@@ -131,3 +131,4 @@ class CfgSounds
 	};
 };
 #include "custom\snap_build\points.hpp"
+#include "addons\DRNdialogs.hpp"

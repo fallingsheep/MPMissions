@@ -160,3 +160,9 @@ execVM "admintools\Activate.sqf";
 //Fast Roping
 sleep 1; 
 _fast_rope = [] execVM "addons\BTC_fast_roping_init.sqf";
+
+//SPAWN SELECT
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")}; 
+if (dayzPlayerLogin2 select 2) then { 
+	[] execVM "addons\DRNSpawn.sqf";
+};
