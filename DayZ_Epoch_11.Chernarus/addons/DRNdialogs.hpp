@@ -32,7 +32,7 @@ class DRN_DIALOG
 			y = 0.382576 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 2;";
+			action = "closeDialog 0;drnspawn = 3;";
 		};
 		class btnBerezino: RscButton
 		{
@@ -42,7 +42,7 @@ class DRN_DIALOG
 			y = 0.382578 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 3;";
+			action = "closeDialog 0;drnspawn = 5;";
 		};
 		class btnKamenka: RscButton
 		{
@@ -52,7 +52,7 @@ class DRN_DIALOG
 			y = 0.382576 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 4;";
+			action = "closeDialog 0;drnspawn = 2;";
 		};
 				class btnKamyshovo: RscButton
 		{
@@ -62,7 +62,7 @@ class DRN_DIALOG
 			y = 0.542496 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 5";
+			action = "closeDialog 0;drnspawn = 4";
 		};
 		class btnKrasnostav: RscButton
 		{
@@ -72,7 +72,7 @@ class DRN_DIALOG
 			y = 0.687876 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 6";
+			action = "closeDialog 0;drnspawn = 7";
 		};
 		class btnGrishino: RscButton
 		{
@@ -82,7 +82,7 @@ class DRN_DIALOG
 			y = 0.542496 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 7;";
+			action = "closeDialog 0;drnspawn = 9;";
 		};
 		class btnKabino: RscButton
 		{
@@ -92,7 +92,7 @@ class DRN_DIALOG
 			y = 0.688995 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 8;";
+			action = "closeDialog 0;drnspawn = 12;";
 		};
 		class btnPusta: RscButton
 		{
@@ -102,7 +102,7 @@ class DRN_DIALOG
 			y = 0.688995 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 9;";
+			action = "closeDialog 0;drnspawn = 11;";
 		};
 		class btnRand: RscButton
 		{
@@ -112,7 +112,7 @@ class DRN_DIALOG
 			y = 0.688995 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 10;";
+			action = "closeDialog 0;drnspawn = 13;";
 		};
 		class btnVybor: RscButton
 		{
@@ -122,7 +122,7 @@ class DRN_DIALOG
 			y = 0.688995 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 11;";
+			action = "closeDialog 0;drnspawn = 10;";
 		};
 		class btnSolinchiny: RscButton
 		{
@@ -132,7 +132,7 @@ class DRN_DIALOG
 			y = 0.542496 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 12;";
+			action = "closeDialog 0;drnspawn = 6;";
 		};
 		class btnGorka: RscButton
 		{
@@ -142,7 +142,7 @@ class DRN_DIALOG
 			y = 0.543614 * safezoneH + safezoneY;
 			w = 0.0594477 * safezoneW;
 			h = 0.027978 * safezoneH;
-			action = "closeDialog 0;drnspawn = 13;";
+			action = "closeDialog 0;drnspawn = 8;";
 		};
 		class mapCherno: RscPicture
 		{
@@ -156,7 +156,7 @@ class DRN_DIALOG
 		class picCherno: RscPicture
 		{
 			idc = 1200;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Cherno.paa";
 			x = 0.281057 * safezoneW + safezoneX;
 			y = 0.289757 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -165,7 +165,7 @@ class DRN_DIALOG
 		class picElectro: RscPicture
 		{
 			idc = 1201;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Electro.paa";
 			x = 0.369795 * safezoneW + safezoneX;
 			y = 0.289758 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -174,7 +174,7 @@ class DRN_DIALOG
 		class picKamenka: RscPicture
 		{
 			idc = 1202;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Kamenka.paa";
 			x = 0.471803 * safezoneW + safezoneX;
 			y = 0.289757 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -183,7 +183,7 @@ class DRN_DIALOG
 		class picBaltoa: RscPicture
 		{
 			idc = 1203;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Baltoa.paa";
 			x = 0.575468 * safezoneW + safezoneX;
 			y = 0.289757 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -192,7 +192,7 @@ class DRN_DIALOG
 		class picBerezino: RscPicture
 		{
 			idc = 1204;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Berezino.paa";
 			x = 0.662548 * safezoneW + safezoneX;
 			y = 0.289757 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -201,7 +201,7 @@ class DRN_DIALOG
 		class picKrasnostav: RscPicture
 		{
 			idc = 1205;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Krasnostav.paa";
 			x = 0.281058 * safezoneW + safezoneX;
 			y = 0.596175 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -210,7 +210,7 @@ class DRN_DIALOG
 		class picPusta: RscPicture
 		{
 			idc = 1206;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Pusta.paa";
 			x = 0.369796 * safezoneW + safezoneX;
 			y = 0.597293 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -219,7 +219,7 @@ class DRN_DIALOG
 		class picRandom: RscPicture
 		{
 			idc = 1207;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Random.paa";
 			x = 0.470973 * safezoneW + safezoneX;
 			y = 0.597294 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -228,7 +228,7 @@ class DRN_DIALOG
 		class picVybor: RscPicture
 		{
 			idc = 1208;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Vybor.paa";
 			x = 0.574639 * safezoneW + safezoneX;
 			y = 0.596175 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -237,7 +237,7 @@ class DRN_DIALOG
 		class picKabino: RscPicture
 		{
 			idc = 1209;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Kabino.paa";
 			x = 0.663377 * safezoneW + safezoneX;
 			y = 0.595057 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -246,7 +246,7 @@ class DRN_DIALOG
 		class picKamyshovo: RscPicture
 		{
 			idc = 1210;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Kamyshovo.paa";
 			x = 0.281886 * safezoneW + safezoneX;
 			y = 0.446321 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -255,7 +255,7 @@ class DRN_DIALOG
 		class picGrishino: RscPicture
 		{
 			idc = 1211;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Grishino.paa";
 			x = 0.662548 * safezoneW + safezoneX;
 			y = 0.447439 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -264,7 +264,7 @@ class DRN_DIALOG
 		class picSolinchiny: RscPicture
 		{
 			idc = 1212;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Solinchiny.paa";
 			x = 0.368137 * safezoneW + safezoneX;
 			y = 0.448558 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
@@ -273,7 +273,7 @@ class DRN_DIALOG
 		class picGorka: RscPicture
 		{
 			idc = 1213;
-			text = "addons\mapchernarus.paa";
+			text = "addons\Gorka.paa";
 			x = 0.573811 * safezoneW + safezoneX;
 			y = 0.448558 * safezoneH + safezoneY;
 			w = 0.0586185 * safezoneW;
