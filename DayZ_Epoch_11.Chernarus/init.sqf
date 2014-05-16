@@ -137,7 +137,7 @@ if (!isDedicated) then {
 snowchance = 5; //5% chance to snow on server start/restart
 	if (isServer) then {
 		if((random 100) < snowchance)then{
-			[] execVM "scripts\effects.sqf"; //TODO- add random to snow and fog variables / make server side
+			[] execVM "scripts\effects.sqf";
 		};
 	};
 
