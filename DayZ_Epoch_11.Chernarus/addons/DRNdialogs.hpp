@@ -35,139 +35,139 @@ class DRN_DIALOG
 	movingenable=true;
 	class Controls
 	{
-		class mapTavi: RscPicture
+		class mapChernarus: RscPicture
 		{
 			idc = 1200;
-			text = "addons\mapTavi.paa";
+			text = "addons\mapChernarus.paa";
 			x = 0.340983 * safezoneW + safezoneX;
 			y = 0.23125 * safezoneH + safezoneY;
 			w = 0.30876 * safezoneW;
 			h = 0.531375 * safezoneH;
 		};
-		class btnByelov: RscButton
+		class btnChernogorsk: RscButton
 		{
 			idc = 1600;
-			text = "Byelov";
+			text = "Chernogorsk";
 			x = 0.590252 * safezoneW + safezoneX;
 			y = 0.59375 * safezoneH + safezoneY;
 			w = 0.0340954 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 0;";
 		};
-		class btnSabina: RscButton
+		class btnElectrozavodsk: RscButton
 		{
 			idc = 1601;
-			text = "Sabina";
+			text = "Electrozavodsk";
 			x = 0.576969 * safezoneW + safezoneX;
 			y = 0.526875 * safezoneH + safezoneY;
 			w = 0.0325326 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 1;";
 		};
-		class btnEtan: RscButton
+		class btnKamenka: RscButton
 		{
 			idc = 1602;
-			text = "Etanovsk";
+			text = "Kamenka";
 			x = 0.526568 * safezoneW + safezoneX;
 			y = 0.50375 * safezoneH + safezoneY;
 			w = 0.0430816 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 2;";
 		};
-		class btnLypo: RscButton
+		class btnBaltoa: RscButton
 		{
 			idc = 1603;
-			text = "Lyepestok";
+			text = "Baltoa";
 			x = 0.498828 * safezoneW + safezoneX;
 			y = 0.43125 * safezoneH + safezoneY;
 			w = 0.049333 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 3;";
 		};
-		class btnMartin: RscButton
+		class btnKamyshovo: RscButton
 		{
 			idc = 1604;
-			text = "Martin";
+			text = "Kamyshovo";
 			x = 0.569935 * safezoneW + safezoneX;
 			y = 0.408125 * safezoneH + safezoneY;
 			w = 0.0364397 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 4;";
 		};
-		class btnDaln: RscButton
+		class btnBerezino: RscButton
 		{
 			idc = 1605;
-			text = "Dalnogorsk";
+			text = "Berezino";
 			x = 0.551964 * safezoneW + safezoneX;
 			y = 0.344375 * safezoneH + safezoneY;
 			w = 0.0501144 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 5;";
 		};
-		class btnYar: RscButton
+		class btnSolinchiny: RscButton
 		{
 			idc = 1606;
-			text = "Yaroslav";
+			text = "Solinchiny";
 			x = 0.502343 * safezoneW + safezoneX;
 			y = 0.3325 * safezoneH + safezoneY;
 			w = 0.0380025 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 6;";
 		};
-		class btnKam: RscButton
+		class btnKrasnostav: RscButton
 		{
 			idc = 1607;
-			text = "Kameni";
+			text = "Krasnostav";
 			x = 0.471087 * safezoneW + safezoneX;
 			y = 0.304375 * safezoneH + safezoneY;
 			w = 0.032142 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 7;";
 		};
-		class btnSev: RscButton
+		class btnGorka: RscButton
 		{
 			idc = 1608;
-			text = "Seven";
+			text = "Gorka";
 			x = 0.497265 * safezoneW + safezoneX;
 			y = 0.726875 * safezoneH + safezoneY;
 			w = 0.0321419 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 8;";
 		};
-		class btnBran: RscButton
+		class btnGrishino: RscButton
 		{
 			idc = 1609;
-			text = "Branibor";
+			text = "Grishino";
 			x = 0.441785 * safezoneW + safezoneX;
 			y = 0.651875 * safezoneH + safezoneY;
 			w = 0.0380025 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 9;";
 		};
-		class btnShta: RscButton
+		class btnVybor: RscButton
 		{
 			idc = 1610;
-			text = "Shtangrad";
+			text = "Vybor";
 			x = 0.367552 * safezoneW + safezoneX;
 			y = 0.58 * safezoneH + safezoneY;
 			w = 0.0497236 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 10;";
 		};
-		class btnVed: RscButton
+		class btnPusta: RscButton
 		{
 			idc = 1611;
-			text = "Vedich";
+			text = "Pusta";
 			x = 0.423423 * safezoneW + safezoneX;
 			y = 0.531875 * safezoneH + safezoneY;
 			w = 0.032142 * safezoneW;
 			h = 0.0145 * safezoneH;
 			action = "closeDialog 0;drnspawn = 11;";
 		};
-		class btnKraz: RscButton
+		class btnKabino: RscButton
 		{
 			idc = 1612;
-			text = "Krazno";
+			text = "Kabino";
 			x = 0.471088 * safezoneW + safezoneX;
 			y = 0.571875 * safezoneH + safezoneY;
 			w = 0.0340955 * safezoneW;
