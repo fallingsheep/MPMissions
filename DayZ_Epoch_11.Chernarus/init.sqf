@@ -166,3 +166,6 @@ waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
 if (dayzPlayerLogin2 select 2) then { 
 	[] execVM "addons\DRNSpawn.sqf";
 };
+
+//Regen Blood
+[] execVM "scripts\regenblood.sqf";
