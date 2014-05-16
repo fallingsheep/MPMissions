@@ -4,12 +4,11 @@
 */
 if ((getPlayerUID player) in ["120958982","admin2","admin3"]) exitWith {
 DZE_StaticConstructionCount = 1;
-DZE_teleport = [14000,14000,14000,14000,14000];
 };
 //disable plot pole
 DZE_requireplot = 0;
 //Admin teleport Fix
-
+DZE_teleport = [14000,14000,14000,14000,14000];
 
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
@@ -29,7 +28,7 @@ enableRadio false;
 enableSentences false;
 
 // DayZ Epoch config
-spawnShoremode = 0; // Default = 1 (on shore)
+spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 
 MaxVehicleLimit = 0; // Default = 50
@@ -37,7 +36,7 @@ MaxDynamicDebris = 0; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30 
 
-dayz_paraSpawn = false;
+dayz_paraSpawn = true;
 
 dayz_minpos = -1; 
 dayz_maxpos = 16000;
