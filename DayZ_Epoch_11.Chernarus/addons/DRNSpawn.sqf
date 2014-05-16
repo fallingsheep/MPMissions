@@ -38,7 +38,7 @@ _DRNloc = _DRNLocs select drnspawn;
 		spawnArea = 1500;
 	};
 	if(isnil "spawnShoremode") then {
-		spawnShoremode = 1;
+		spawnShoremode = 0;
 	};
 	//spawn into random
 	_findSpot = true;
