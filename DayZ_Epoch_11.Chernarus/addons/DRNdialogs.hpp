@@ -1,201 +1,270 @@
-/*
-class RscButton
-{
-	access = 0;
-	type = 1;
-	text = "";
-	colorText[] = {0.8784,0.8471,0.651,1};
-	colorDisabled[] = {0.4,0.4,0.4,1};
-	colorBackground[] = {1,0.537,0,0.5};
-	colorBackgroundDisabled[] = {0.95,0.95,0.95,1};
-	colorBackgroundActive[] = {1,0.537,0,1};
-	colorFocused[] = {1,0.537,0,1};
-	colorShadow[] = {0.023529,0,0.0313725,1};
-	colorBorder[] = {0.023529,0,0.0313725,1};
-	soundEnter[] = {"\ca\ui\data\sound\onover",0.09,1};
-	soundPush[] = {"\ca\ui\data\sound\new1",0,0};
-	soundClick[] = {"\ca\ui\data\sound\onclick",0.07,1};
-	soundEscape[] = {"\ca\ui\data\sound\onescape",0.09,1};
-	style = 2;
-	x = 0;
-	y = 0;
-	w = 0.095589;
-	h = 0.039216;
-	shadow = 2;
-	font = "Zeppelin32";
-	sizeEx = 0.03921;
-	offsetX = 0.003;
-	offsetY = 0.003;
-	offsetPressedX = 0.002;
-	offsetPressedY = 0.002;
-	borderSize = 0;
-};
-*/
+
 class DRN_DIALOG
 {
 	idd=-1;
 	movingenable=true;
 	class Controls
 	{
-		class mapChernarus: RscPicture
+		class picCherno: RscPicture
 		{
 			idc = 1200;
-			text = "addons\mapChernarus.paa";
-			x = 0.340983 * safezoneW + safezoneX;
-			y = 0.23125 * safezoneH + safezoneY;
-			w = 0.30876 * safezoneW;
-			h = 0.531375 * safezoneH;
+			 text = "dayz_equip\textures\equip_tanktrap_kit_CA.paa";
+			x = 0.281057 * safezoneW + safezoneX;
+			y = 0.289757 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
 		};
 		class btnChernogorsk: RscButton
 		{
 			idc = 1600;
-			text = "Chernogorsk";
-			x = 0.590252 * safezoneW + safezoneX;
-			y = 0.59375 * safezoneH + safezoneY;
-			w = 0.0340954 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 0;";
+			text = "Cherno";
+			x = 0.280228 * safezoneW + safezoneX;
+			y = 0.382577 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnElectrozavodsk: RscButton
 		{
 			idc = 1601;
-			text = "Electrozavodsk";
-			x = 0.576969 * safezoneW + safezoneX;
-			y = 0.526875 * safezoneH + safezoneY;
-			w = 0.0325326 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 1;";
-		};
-		class btnKamenka: RscButton
-		{
-			idc = 1602;
-			text = "Kamenka";
-			x = 0.526568 * safezoneW + safezoneX;
-			y = 0.50375 * safezoneH + safezoneY;
-			w = 0.0430816 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 2;";
+			text = "Electro";
+			x = 0.368967 * safezoneW + safezoneX;
+			y = 0.382576 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnBaltoa: RscButton
 		{
-			idc = 1603;
+			idc = 1602;
 			text = "Baltoa";
-			x = 0.498828 * safezoneW + safezoneX;
-			y = 0.43125 * safezoneH + safezoneY;
-			w = 0.049333 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 3;";
-		};
-		class btnKamyshovo: RscButton
-		{
-			idc = 1604;
-			text = "Kamyshovo";
-			x = 0.569935 * safezoneW + safezoneX;
-			y = 0.408125 * safezoneH + safezoneY;
-			w = 0.0364397 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 4;";
+			x = 0.573809 * safezoneW + safezoneX;
+			y = 0.382576 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnBerezino: RscButton
 		{
-			idc = 1605;
+			idc = 1603;
 			text = "Berezino";
-			x = 0.551964 * safezoneW + safezoneX;
-			y = 0.344375 * safezoneH + safezoneY;
-			w = 0.0501144 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 5;";
+			x = 0.661719 * safezoneW + safezoneX;
+			y = 0.382578 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
-		class btnSolinchiny: RscButton
+		class btnKamenka: RscButton
 		{
-			idc = 1606;
-			text = "Solinchiny";
-			x = 0.502343 * safezoneW + safezoneX;
-			y = 0.3325 * safezoneH + safezoneY;
-			w = 0.0380025 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 6;";
+			idc = 1604;
+			text = "Kamenka";
+			x = 0.471803 * safezoneW + safezoneX;
+			y = 0.382576 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
+		};
+		class picElectro: RscPicture
+		{
+			idc = 1201;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.369795 * safezoneW + safezoneX;
+			y = 0.289758 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picKamenka: RscPicture
+		{
+			idc = 1202;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.471803 * safezoneW + safezoneX;
+			y = 0.289757 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picBaltoa: RscPicture
+		{
+			idc = 1203;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.575468 * safezoneW + safezoneX;
+			y = 0.289757 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picBerezino: RscPicture
+		{
+			idc = 1204;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.662548 * safezoneW + safezoneX;
+			y = 0.289757 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class btnKamyshovo: RscButton
+		{
+			idc = 1605;
+			text = "Kamyshovo";
+			x = 0.280228 * safezoneW + safezoneX;
+			y = 0.542496 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnKrasnostav: RscButton
 		{
-			idc = 1607;
+			idc = 1606;
 			text = "Krasnostav";
-			x = 0.471087 * safezoneW + safezoneX;
-			y = 0.304375 * safezoneH + safezoneY;
-			w = 0.032142 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 7;";
-		};
-		class btnGorka: RscButton
-		{
-			idc = 1608;
-			text = "Gorka";
-			x = 0.497265 * safezoneW + safezoneX;
-			y = 0.726875 * safezoneH + safezoneY;
-			w = 0.0321419 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 8;";
+			x = 0.280228 * safezoneW + safezoneX;
+			y = 0.687876 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnGrishino: RscButton
 		{
-			idc = 1609;
+			idc = 1607;
 			text = "Grishino";
-			x = 0.441785 * safezoneW + safezoneX;
-			y = 0.651875 * safezoneH + safezoneY;
-			w = 0.0380025 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 9;";
-		};
-		class btnVybor: RscButton
-		{
-			idc = 1610;
-			text = "Vybor";
-			x = 0.367552 * safezoneW + safezoneX;
-			y = 0.58 * safezoneH + safezoneY;
-			w = 0.0497236 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 10;";
-		};
-		class btnPusta: RscButton
-		{
-			idc = 1611;
-			text = "Pusta";
-			x = 0.423423 * safezoneW + safezoneX;
-			y = 0.531875 * safezoneH + safezoneY;
-			w = 0.032142 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 11;";
+			x = 0.662548 * safezoneW + safezoneX;
+			y = 0.542496 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnKabino: RscButton
 		{
-			idc = 1612;
+			idc = 1608;
 			text = "Kabino";
-			x = 0.471088 * safezoneW + safezoneX;
-			y = 0.571875 * safezoneH + safezoneY;
-			w = 0.0340955 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 12;";
+			x = 0.662548 * safezoneW + safezoneX;
+			y = 0.688995 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
+		};
+		class btnPusta: RscButton
+		{
+			idc = 1609;
+			text = "Pusta";
+			x = 0.368966 * safezoneW + safezoneX;
+			y = 0.688995 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class btnRand: RscButton
 		{
-			idc = 1613;
+			idc = 1610;
 			text = "Random";
-			x = 0.382789 * safezoneW + safezoneX;
-			y = 0.419375 * safezoneH + safezoneY;
-			w = 0.0368304 * safezoneW;
-			h = 0.0145 * safezoneH;
-			action = "closeDialog 0;drnspawn = 13;";
+			x = 0.470144 * safezoneW + safezoneX;
+			y = 0.688995 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
+		};
+		class btnVybor: RscButton
+		{
+			idc = 1611;
+			text = "Vybor";
+			x = 0.57381 * safezoneW + safezoneX;
+			y = 0.688995 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
+		};
+		class picKrasnostav: RscPicture
+		{
+			idc = 1205;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.281058 * safezoneW + safezoneX;
+			y = 0.596175 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picPusta: RscPicture
+		{
+			idc = 1206;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.369796 * safezoneW + safezoneX;
+			y = 0.597293 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picRandom: RscPicture
+		{
+			idc = 1207;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.470973 * safezoneW + safezoneX;
+			y = 0.597294 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picVybor: RscPicture
+		{
+			idc = 1208;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.574639 * safezoneW + safezoneX;
+			y = 0.596175 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picKabino: RscPicture
+		{
+			idc = 1209;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.663377 * safezoneW + safezoneX;
+			y = 0.595057 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picKamyshovo: RscPicture
+		{
+			idc = 1210;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.281886 * safezoneW + safezoneX;
+			y = 0.446321 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picGrishino: RscPicture
+		{
+			idc = 1211;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.662548 * safezoneW + safezoneX;
+			y = 0.447439 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picSolinchiny: RscPicture
+		{
+			idc = 1212;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.368137 * safezoneW + safezoneX;
+			y = 0.448558 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class picGorka: RscPicture
+		{
+			idc = 1213;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.573811 * safezoneW + safezoneX;
+			y = 0.448558 * safezoneH + safezoneY;
+			w = 0.0586185 * safezoneW;
+			h = 0.0883669 * safezoneH;
+		};
+		class btnSolinchiny: RscButton
+		{
+			idc = 1612;
+			text = "Solinchiny";
+			x = 0.368137 * safezoneW + safezoneX;
+			y = 0.542496 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
+		};
+		class btnGorka: RscButton
+		{
+			idc = 1613;
+			text = "Gorka";
+			x = 0.572981 * safezoneW + safezoneX;
+			y = 0.543614 * safezoneH + safezoneY;
+			w = 0.0594477 * safezoneW;
+			h = 0.027978 * safezoneH;
 		};
 		class lblMap: RscText
 		{
 			idc = 1000;
 			text = "Select spawn area";
-			x = 0.358175 * safezoneW + safezoneX;
-			y = 0.366875 * safezoneH + safezoneY;
-			w = 0.0801985 * safezoneW;
-			h = 0.018875 * safezoneH;
-			tooltip = "Good luck!";
+			x = 0.447753 * safezoneW + safezoneX;
+			y = 0.256207 * safezoneH + safezoneY;
+			w = 0.10589 * safezoneW;
+			h = 0.0447527 * safezoneH;
 		};
-
 	};
 };
