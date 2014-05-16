@@ -166,6 +166,8 @@ waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
 if (dayzPlayerLogin2 select 2) then { 
 	[] execVM "addons\DRNSpawn.sqf";
 };
-
+///////////////////// INTRO VIDEO /////////////////////
+if (!isDedicated) then {
+_CustomGpsVideo = [] execVM "gps_video\gps_video.sqf"};
 //Regen Blood
 [] execVM "scripts\regenblood.sqf";
