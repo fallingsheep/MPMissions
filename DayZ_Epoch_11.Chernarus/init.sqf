@@ -166,10 +166,6 @@ waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
 if (dayzPlayerLogin2 select 2) then { 
 	[] execVM "addons\DRNSpawn.sqf";
 };
-//Intro video
-if (!isDedicated) then {
-_CustomGpsVideo = [] execVM "gps_video\gps_video.sqf";
-};
 
 //night time ground fog
 [] execVM "scripts\ground_fog.sqf";
