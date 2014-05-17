@@ -116,9 +116,6 @@ if (isServer) then {
 if (!isDedicated) then {
 	//Bus Route
 	[] execVM "busroute\player_axeBus.sqf";
-	
-	//Welcome Credits
-	[] execVM "scripts\welcomecredits.sqf";
 };
 //LIGHTS
 if (isServer) then {
@@ -167,6 +164,9 @@ if (dayzPlayerLogin2 select 2) then {
 	[] execVM "addons\DRNSpawn.sqf";
 };
 
+//Welcome Credits
+[] execVM "scripts\welcomecredits.sqf";
+	
 //night time ground fog
 [] execVM "scripts\ground_fog.sqf";
 
