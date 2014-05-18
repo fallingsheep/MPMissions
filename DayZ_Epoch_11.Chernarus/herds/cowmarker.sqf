@@ -3,7 +3,7 @@ private ["_amountToSpawn", "_spawnPosition", "_cowGroup", "_cowmarker", "_cowTyp
 //TEMP CREATE MARKER AT PLAYER FOR TESTING
 //creates the cow marker on map
 
-_pos1 = [6686.8,2290.11,0.001] // chernarus spawn
+_pos1 = [6686.8,2290.11,0.001]; // chernarus spawn
 _cowmarker = createMarker ["CowSpawn1", position _pos1 ]; // create marker
 _cowmarker setMarkerShape "ICON"; //set marker shape
 _cowmarker setMarkerType "DOT"; //set marker type
