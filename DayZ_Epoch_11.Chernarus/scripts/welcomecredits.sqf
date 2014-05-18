@@ -5,7 +5,7 @@
 // Credits for original script: Bohemia Interactive http://bistudio.com
  
 // ========== SCRIPT CONFIG ============
-_onScreenTime = 6; //how long one role should stay on screen. Use value from 0 to 10 where 0 is almost instant transition to next role
+_onScreenTime = 7; //how long one role should stay on screen. Use value from 0 to 10 where 0 is almost instant transition to next role
 //NOTE: Above value is not in seconds. It is percentage. Default: 6
  
 // ==== CUSTOMIZING THE CREDITS ===
@@ -21,7 +21,7 @@ _onScreenTime = 6; //how long one role should stay on screen. Use value from 0 t
  
 // ==== SCRIPT START ====
 waitUntil {!isNil "dayz_animalCheck"};
-sleep 15; //Wait in seconds before the credits start after player IS ingame
+sleep 30; //Wait in seconds before the credits start after player IS ingame
  
 _role1 = "Welcome to";
 _role1names = ["Sheep Dayz Epoch Repack"];
@@ -38,7 +38,7 @@ _role6names = ["Zombie Bait", "Zombie Bomb", "Towing", "Debug Monitor","Salvage 
 _role7 = "Server Mods - #4";
 _role7names = ["Auto Refuel","DZAI","DZMS","Building Snapping", "Base Building 1.3", "Suicide", "Animated C130 Crahes"];
 _role8 = "Server Mods - #5";
-_role8names = ["House Lights","Taunt Zombie"
+_role8names = ["House Lights","Taunt Zombie"];
 {
 sleep 2;
 _memberFunction = _x select 0;
