@@ -3,11 +3,12 @@ private ["_amountToSpawn", "_spawnPosition", "_cowGroup", "_cowmarker", "_cowTyp
 //TEMP CREATE MARKER AT PLAYER FOR TESTING
 //creates the cow marker on map
 
-_pos1 = [6686.8,2290.11,0.001]; // chernarus spawn
-_cowmarker = createMarker ["CowSpawn1", position _pos1 ]; // create marker
+_cowmarker = createMarker ["CowSpawn1",[6686.8,2290.11]]; // create marker
 _cowmarker setMarkerShape "ICON"; //set marker shape
 _cowmarker setMarkerType "DOT"; //set marker type
 _cowmarker setMarkerText "COWS"; //set marker text
+
+diag_log ( "HERDS - Markers Created" );
 
 CowTypes = ["Cow01","Cow02","Cow03","Cow04"]; // Array containing types of cows
 //SpawnedCows = []; // An array containing all the cows spawned
@@ -22,6 +23,7 @@ CowTypes = ["Cow01","Cow02","Cow03","Cow04"]; // Array containing types of cows
 		_cowType = call RandomCowType;// Pick a random cow type from the CowType array.
         _cow = _cowGroup createUnit [_cowType, _spawnPosition, [], 0, "NONE"];// Spawn the cow as part of the created group, at the spawn position.
         //SpawnedCows set [count SpawnedCows, _cow]; // Add the spawned cow to the SpawnedCows array.
+		diag_log ( "HERDS - Cow Spawned!" );
     };
 	
 //pick random cow
