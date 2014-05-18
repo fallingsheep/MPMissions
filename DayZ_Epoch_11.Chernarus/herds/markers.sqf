@@ -6,4 +6,4 @@ _cowmarker setMarkerShape "ICON"; //set marker shape
 _cowmarker setMarkerType "DOT"; //set marker type
 _cowmarker setMarkerText "COWS"; //set marker text
 
-diag_log ( "################### HERDS - Markers Created ###################" );
+diag_log ( "//////////////////////// HERDS - Markers Created ////////////////////////" );
