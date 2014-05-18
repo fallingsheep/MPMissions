@@ -103,7 +103,10 @@ if (!isDedicated) then {
 	
 	//Debug Monitor
 	[] execVM "scripts\debug_monitor.sqf";
-
+	
+	//Safe Zones
+	[] execVM 'scripts\agn_SafeZoneCommander.sqf';
+	
 	//Lights
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
@@ -151,8 +154,6 @@ execVM "admintools\Activate.sqf";
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
 
-//Safe Zones
-[] execVM 'scripts\agn_SafeZoneCommander.sqf';
 
 //Fast Roping
 sleep 1; 
