@@ -14,15 +14,15 @@ CowTypes = ["Cow01","Cow02","Cow03","Cow04"]; // Array containing types of cows
 //SpawnedCows = []; // An array containing all the cows spawned
 
     _amountToSpawn = 15;// How many cows to spawn
-_veh = createVehicle ["ah1w", getMarkerPos "mybaseMarker", [], 0, "NONE"];
 
-	
+
 	
     // Repeat _amountToSpawn times.
     for [{_i = 0}, {_i < _amountToSpawn}, {_i = _i + 1}] do{ 
 		_cowType = call RandomCowType;// Pick a random cow type from the CowType array.
-        _cow = createUnit [_cowType, getMarkerPos "CowSpawn1", [], 0, "NONE"];// Spawn the cow as part of the created group, at the spawn position.
-        //SpawnedCows set [count SpawnedCows, _cow]; // Add the spawned cow to the SpawnedCows array.
+        _spawnPos = getMarkerPos "CowSpawn1";
+		_group = createGroup Civilian;
+		_group createUnit [_cowType, [_spawnPos select 0,_spawnPos select 1,1], [], 1, "FORM"];	
 		diag_log ( "HERDS - Cow Spawned!" );
     };
 	
