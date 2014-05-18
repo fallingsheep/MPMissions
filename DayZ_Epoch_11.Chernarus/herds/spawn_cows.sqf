@@ -1,10 +1,10 @@
 
-CowTypes = ["Cow04"]; // Array containing types of cows
+CowTypes = ["Cow","Cow02","Cow04"]; // Array containing types of cows
 //pick random cow
 RandomCowType = {
    CowTypes select (floor random count CowTypes); // pick random CowType
 };
-	_unitGroup = if (isNull (_this select 1)) then {createGroup EAST};
+	_unitGroup = createGroup east;
     _amountToSpawn = 15;// How many cows to spawn
     // Repeat _amountToSpawn times.
     for "_i" from 1 to _amountToSpawn do {
