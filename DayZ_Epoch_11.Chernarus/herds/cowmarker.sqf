@@ -1,16 +1,18 @@
-private ["_amountToSpawn", "_spawnPosition", "_cowGroup", "_cowmarker", "_cowType", "_cow"];
+private ["_amountToSpawn", "_spawnPosition", "_cowGroup", "_cowmarker", "_cowType", "_cow", "-pos1"];
 
 //TEMP CREATE MARKER AT PLAYER FOR TESTING
 //creates the cow marker on map
-_cowmarker = createMarker ["CowSpawn1", position player ];
-_cowmarker setMarkerShape "ICON"; 
-_cowmarker setMarkerType "DOT";
-_cowmarker setMarkerText "COWS";
+
+_pos1 = [6686.8,2290.11,0.001] // chernarus spawn
+_cowmarker = createMarker ["CowSpawn1", position _pos1 ]; // create marker
+_cowmarker setMarkerShape "ICON"; //set marker shape
+_cowmarker setMarkerType "DOT"; //set marker type
+_cowmarker setMarkerText "COWS"; //set marker text
 
 CowTypes = ["Cow01","Cow02","Cow03","Cow04"]; // Array containing types of cows
 SpawnedCows = []; // An array containing all the cows spawned
 
-    _amountToSpawn = _this;// Get the number of cows to spawn
+    _amountToSpawn = 10;// How many cows to spawn
     _spawnPosition = getMarkerPos "CowSpawn1";// Get the position to spawn them at.
     _cowGroup = createGroup civilian;// Create a group for the cows.
 	
@@ -24,7 +26,7 @@ SpawnedCows = []; // An array containing all the cows spawned
 	
 //pick random cow
 RandomCowType = {
-    CowTypes select (floor random count CowTypes);
+    CowTypes select (floor random count CowTypes); // pick random CowType
 };
 
 ///// NOT USED YET ////
