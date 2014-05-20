@@ -2,8 +2,9 @@
 	For DayZ Epoch
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
-if ((getPlayerUID player) in ["120958982","admin2","admin3"]) exitWith {
-DZE_StaticConstructionCount = 1;
+
+if ((getPlayerUID player) in (AdminList) exitWith {
+DZE_StaticConstructionCount = 0;
 };
 //disable plot pole
 DZE_requireplot = 0;
@@ -98,8 +99,12 @@ if (!isDedicated) then {
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	
-	//anti Hack
-	[] execVM "scripts\antihack.sqf";
+		// Epoch Admin Tools
+	[] execVM "admintools\AdminList.sqf";
+	if ( !((getPlayerUID player) in AdminList) && !((getPlayerUID player) in ModList) && !((getPlayerUID player) in tempList)) then 
+	{
+		[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	};
 	
 	//Debug Monitor
 	[] execVM "scripts\debug_monitor.sqf";
@@ -149,8 +154,8 @@ snowchance = 5; //5% chance to snow on server start/restart
 //Start Dynamic Weather
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
-//admin tools
-execVM "admintools\Activate.sqf";
+//Epoch admin tools
+[] execVM "admintools\Activate.sqf";
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
 
