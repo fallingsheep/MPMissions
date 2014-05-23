@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 // Control types
-
+/*
 class RscTextT
 {
 	access = 0;
@@ -132,6 +132,7 @@ class RscShortcutButton
 		align = "left";
 	};
 };
+*/
 class AdminDialog
 {
 	idd = -1;
