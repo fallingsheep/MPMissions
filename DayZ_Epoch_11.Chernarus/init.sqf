@@ -3,7 +3,7 @@
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
 
-if ((getPlayerUID player) in (AdminList) exitWith {
+if (getPlayerUID player) in (AdminList) exitWith {
 DZE_StaticConstructionCount = 0;
 };
 //disable plot pole
