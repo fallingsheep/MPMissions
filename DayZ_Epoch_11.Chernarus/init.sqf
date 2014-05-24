@@ -4,7 +4,8 @@
 */
 //
 DZE_StaticConstructionCount = 0;
-
+//custom loot tables
+DZE_MissionLootTable = true;
 //disable plot pole
 DZE_requireplot = 0;
 //Admin teleport Fix

@@ -3,7 +3,7 @@
 #include "build_recipe_dialog.hpp"
 #include "build_recipe_list_dialog.hpp"
 //////////////////////////////////BASE BUILD//////////////////////////////////
-
+#include "loot\config\cfgbuildingloot.hpp"
 respawn = "BASE";
 respawndelay = 5;
 onLoadMission= "DayZ Epoch Chernarus";
