@@ -178,5 +178,3 @@ if (dayzPlayerLogin2 select 2) then {
 //Regen Blood
 [] execVM "scripts\regenblood.sqf";
 
-//HERDS STUFF
-[] execVM "herds\Activate.sqf";
