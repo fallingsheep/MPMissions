@@ -10,8 +10,11 @@ if ( isDedicated || isServer ) exitWith {diag_log ( "Error: Attempting to start 
 
 Private ["_EH_Fired", "_ehID", "_fix","_inVehicle","_inVehicleLast","_EH_Fired_Vehicle","_inVehicleDamage","_antiBackpackThread","_antiBackpackThread2","AGN_safeZoneGodmode","AGN_safeZoneMessages","AGN_safeZone_Backpack_AllowGearFromLootPiles",
 		"AGN_safeZone_Backpack_AllowGearFromVehicles","AGN_safeZone_Backpack_AllowGearFromDeadPlayers","AGN_safeZone_Vehicles_DisableMountedGuns","AGN_safeZone_Players_DisableWeaponFiring",
-		"AGN_safeZone_Backpack_EnableAntiBackpack","AGN_safeZone_Vehicles_AllowGearFromWithinVehicles"];
+		"AGN_safeZone_Backpack_EnableAntiBackpack","AGN_safeZone_Vehicles_AllowGearFromWithinVehicles","AGN_safeZoneAntispam","AGN_safeZone_Players_RemoveZombies"];
 
+//ANTI SPAM GODMODE
+AGN_safeZoneAntispam = true;								// puts a time limit on Godmode when trying to leave and enter a safe zone rapidly
+AGN_safeZone_Players_RemoveZombies= true;                	//Players allowed to delete zombies near themwhile in safe zone
 
 //SCRIPT SETTINGS
 AGN_safeZoneDebug = false; //Debug notes on screen.
@@ -21,7 +24,7 @@ AGN_safeZone_Backpack_EnableAntiBackpack = true;			//Should players not be able 
 AGN_safeZone_Backpack_AllowGearFromLootPiles = true;		//Should players be able to loot from loot piles?
 AGN_safeZone_Backpack_AllowGearFromVehicles = true;		//Should players be able to loot from a vehicles gear?
 AGN_safeZone_Backpack_AllowGearFromDeadPlayers = true;		//Should players be able to loot from a dead players corpse?
-AGN_safeZone_Backpack_AllowFriendlyTaggedAccess = true;	//Should players who are tagged friendly be able to access eachothers bags?
+AGN_safeZone_Backpack_AllowFriendlyTaggedAccess = true;	//Should players who are tagged friendly be able to access each others bags?
 AGN_safeZone_Vehicles_DisableMountedGuns = true;			//Should players not be able to shoot bullets/projectiles from mounted guns?
 AGN_safeZone_Vehicles_AllowGearFromWithinVehicles = true;	//Should players be able to open the gear screen while they are inside a vehicle?
 AGN_safeZone_Players_DisableWeaponFiring = true;			//Should players not be able to shoot bullets/projectiles from their weapon(s)?
@@ -31,6 +34,9 @@ disableSerialization;
 
 waitUntil {!isNil "dayz_animalCheck"};
 if ( AGN_safeZoneMessages ) then { systemChat ( "[AGN] Trader Zone Commander Loaded!" ); };
+
+//set default value
+AGN_enteredSafezone = false;
 
 _inVehicle = objNull;
 _inVehicleLast = objNull;
@@ -45,13 +51,37 @@ while {true} do {
 
 	if ( AGN_safeZoneGodmode ) then
 	{
-		player_zombieCheck = {};
-		fnc_usec_damageHandler = {};
-		_thePlayer removeAllEventHandlers "handleDamage";
-		_thePlayer addEventHandler ["handleDamage", {false}];
-		_thePlayer allowDamage false;
+		if (AGN_safeZoneAntispam )then
+		{
+			if (AGN_enteredSafezone) then{
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam Godmode...please wait before re-entering!"); };
+			}else{
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You must wait 2 minutes for god mode to become active once you leave!");};
+				player_zombieCheck = {};
+				fnc_usec_damageHandler = {};
+				_thePlayer removeAllEventHandlers "handleDamage";
+				_thePlayer addEventHandler ["handleDamage", {false}];
+				_thePlayer allowDamage false;
+				AGN_enteredSafezone = true;
+			};
+		};				
 	};
-	
+	if ( AGN_safeZone_Players_RemoveZombies ) then
+    {
+        _anti_zombie = [] spawn {
+        private ["_entity_array"];
+            while {!canBuild} do
+            {
+                _entity_array = (getPos player) nearEntities ["CAManBase",110];
+                {
+                    if (_x isKindof "zZombie_Base") then {
+                        deletevehicle _x;
+                    };
+                } forEach _entity_array;
+                sleep 4;
+            };
+        };
+    };
 	if ( AGN_safeZone_Players_DisableWeaponFiring ) then
 	{
 		_EH_Fired = _thePlayer addEventHandler ["Fired", {
@@ -230,6 +260,14 @@ while {true} do {
 		_thePlayer addEventHandler ["handleDamage", {true}];
 		_thePlayer removeAllEventHandlers "handleDamage";
 		_thePlayer allowDamage true;
+	};
+	//ANTISPAM LEAVING SAFZONE
+	if (AGN_safeZoneAntispam )then{
+			if (AGN_enteredSafezone) then{
+				sleep 120;//PROBLEM cause entire script to sleep for 2 min need to make counter 		
+				AGN_enteredSafezone = false;
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
+			};
 	};
 	_inSafezoneFinished = true;
 };
