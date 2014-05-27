@@ -14,6 +14,7 @@ _location = _pos;
  
 _veh = createVehicle [_vehtospawn, _pos, [], 0, "CAN_COLLIDE"];
 _veh setVariable ["MalSar",1,true];
+_veh setVariable ["Sarge",1,true];
 clearMagazineCargoGlobal _veh;
 clearWeaponCargoGlobal _veh;
  

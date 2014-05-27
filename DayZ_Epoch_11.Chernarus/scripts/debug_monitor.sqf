@@ -7,15 +7,23 @@ customStudyBody = "";
 
 debugMonitor = true;
 
+
 while {true} do {
+
+	//update xp display
+	player setVariable["experience",_TotalXP,true];
+		
+		
 	_rtime = round(21600 - serverTime);
 	
 	if ((_rtime < 300) && (!_warning)) then {
 		_warning = true;
 		cutText [(localize "STR_custom_5minRestart"),"PLAIN"];
-	};
+	};	
 
 	if (debugMonitor) then {
+	
+		//Restart Time
 		_hours = (_rtime/60/60);
 		_hours = toArray (str _hours);
 		_hours resize 1;
@@ -33,11 +41,18 @@ while {true} do {
 		_killsH = 		player getVariable["humanKills",0];
 		_killsB = 		player getVariable["banditKills",0];
 		
+		
+		
+
+		
 		if (player == vehicle player) then {
 			_pic = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'picture'));
 		} else {
 			_pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
 		};
+		//xp stuff
+		_Plevel = 		player getVariable["level",0];
+		_PXP = 			player getVariable["experience",0];
 		
 		_info_player = 
 			"<t size='1' font='Bitstream' align='Center' >%3</t><br/>
@@ -45,6 +60,9 @@ while {true} do {
 			<t size='1' font='Bitstream' align='center' color='#5882FA'>Survived %9 Days</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#CC0000'>Blood: </t><t size='1' font='Bitstream' align='right'>%4</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#0066CC'>Humanity: </t><t size='1' font='Bitstream' align='right'>%5</t><br/>
+			<br/>
+			 <t size='1' font='Bitstream' align='left' color='#FFBF00'>Level: </t><t size='1' font='Bitstream' align='right'>%13</t><br/>
+			  <t size='1' font='Bitstream' align='left' color='#FFBF00'>Experience: </t><t size='1' font='Bitstream' align='right'>%14</t><br/>
 			<br/>
 			<t size='1' font='Bitstream' align='left' color='#FFBF00'>Players Online: </t><t size='1 'font='Bitstream' align='right'>%12</t><br/>
 	        <t size='1' font='Bitstream' align='left' color='#FFBF00'>Murders: </t><t size='1' font='Bitstream' align='right'>%8</t><br/>
@@ -68,8 +86,19 @@ while {true} do {
 			(dayz_Survived),
 			round(diag_fps),
 			_KillsB,
-			(count playableUnits)
+			(count playableUnits),
+			_PXP,
+			_Plevel
 			];
 	};
 	sleep 1;	
 };
+
+
+
+
+
+
+
+
+

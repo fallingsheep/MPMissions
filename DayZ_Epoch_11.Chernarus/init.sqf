@@ -3,13 +3,6 @@
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
 //
-DZE_StaticConstructionCount = 0;
-//custom loot tables
-DZE_MissionLootTable = true;
-//disable plot pole
-DZE_requireplot = 0;
-//Admin teleport Fix
-DZE_teleport = [14000,14000,14000,14000,14000];
 
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
@@ -52,6 +45,13 @@ DynamicVehicleDamageLow = 0; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
 
 DZE_BuildOnRoads = true; // Default: False
+DZE_StaticConstructionCount = 0;
+//custom loot tables
+DZE_MissionLootTable = true;
+//disable plot pole
+DZE_requireplot = 0;
+//Admin teleport Fix
+DZE_teleport = [14000,14000,14000,14000,14000];
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
@@ -178,4 +178,15 @@ if (dayzPlayerLogin2 select 2) then {
 
 //Regen Blood
 [] execVM "scripts\regenblood.sqf";
+
+//Level System
+NoPVP = false;
+LoseXP_PVP = true; // lose XP for PVP actions
+LevelMenu = false; // use level menu rewards
+DefaultLevel = 0; // player start level
+ZombieXP = true; //gain XP from zombie kills
+HumanityXP = true;//gain XP from Humanity
+AIXP = true;//gain XP from killing AI (and Bandit Players!)
+//start level system
+[] execVM "level.sqf";
 
