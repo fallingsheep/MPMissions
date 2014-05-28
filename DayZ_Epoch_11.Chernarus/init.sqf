@@ -180,13 +180,4 @@ if (dayzPlayerLogin2 select 2) then {
 [] execVM "scripts\regenblood.sqf";
 
 
-//Level System
-NoPVP = false;
-LoseXP_PVP = true; // lose XP for PVP actions
-LevelMenu = false; // use level menu rewards
-DefaultLevel = 0; // player start level
-ZombieXP = true; //gain XP from zombie kills
-HumanityXP = true;//gain XP from Humanity
-AIXP = true;//gain XP from killing AI (and Bandit Players!)
-[] execVM "level.sqf";
 

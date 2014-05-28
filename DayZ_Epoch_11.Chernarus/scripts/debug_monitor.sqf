@@ -44,9 +44,6 @@ while {true} do {
 			<t size='1' font='Bitstream' align='left' color='#CC0000'>Blood: </t><t size='1' font='Bitstream' align='right'>%4</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#0066CC'>Humanity: </t><t size='1' font='Bitstream' align='right'>%5</t><br/>
 			<br/>
-			 <t size='1' font='Bitstream' align='left' color='#FFBF00'>Level: </t><t size='1' font='Bitstream' align='right'>%13</t><br/>
-			  <t size='1' font='Bitstream' align='left' color='#FFBF00'>Experience: </t><t size='1' font='Bitstream' align='right'>%14</t><br/>
-			<br/>
 			<t size='1' font='Bitstream' align='left' color='#FFBF00'>Players Online: </t><t size='1 'font='Bitstream' align='right'>%12</t><br/>
 	        <t size='1' font='Bitstream' align='left' color='#FFBF00'>Murders: </t><t size='1' font='Bitstream' align='right'>%8</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#FFBF00'>Bandits Killed: </t><t size='1' font='Bitstream' align='right'>%11</t><br/>
@@ -68,9 +65,7 @@ while {true} do {
 			(dayz_Survived),
 			round(diag_fps),
 			_KillsB,
-			(count playableUnits),
-			_PXP,
-			_Plevel
+			(count playableUnits)
 			];
 	};
 	sleep 1;	
