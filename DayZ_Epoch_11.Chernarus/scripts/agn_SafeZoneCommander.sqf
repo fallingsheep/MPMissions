@@ -268,7 +268,7 @@ while {true} do {
 				
 				}else{
 				Timerstarted = true;//tell loop timer has started
-				[2] execVM "timer.sqf";//starttimer
+				[] execVM "timer.sqf";//starttimer
 				};
 				//check if time limt is up and message player accordingly
 				if (timesover) then{
