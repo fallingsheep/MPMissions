@@ -37,7 +37,10 @@ if(count _helipad > 0) then {
  
 //place vehicle spawn marker (local)
 _veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
- 
+_veh setVariable ["MalSar",1,true];
+_veh setVariable ["Sarge",1,true];
+_vehtospawn setVariable ["MalSar",1,true];
+_vehtospawn setVariable ["Sarge",1,true];
 _location = (getPosATL _veh);
  
 PVDZE_veh_Publish2 = [_veh,[_dir,_location],_vehtospawn,false,_keySelected,_activatingPlayer];
