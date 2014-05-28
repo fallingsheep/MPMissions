@@ -264,9 +264,12 @@ while {true} do {
 	//ANTISPAM LEAVING SAFZONE
 	if (AGN_safeZoneAntispam )then{
 			if (AGN_enteredSafezone) then{
-				sleep 120;//PROBLEM cause entire script to sleep for 2 min need to make counter 		
+				for "_i" from 1 to 120 step 1 do {_timer = (_timer + 1);};
+				If (_timer >= 120){
 				AGN_enteredSafezone = false;
 				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
+				};
+				
 			};
 	};
 	_inSafezoneFinished = true;
