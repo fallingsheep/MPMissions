@@ -259,17 +259,18 @@ while {true} do {
 		_thePlayer addEventHandler ["handleDamage", {true}];
 		_thePlayer removeAllEventHandlers "handleDamage";
 		_thePlayer allowDamage true;
+		//execute timer everytime player leaves!
+		//stop timer looping
+		if(Timerstarted)then{
+			//do nothing
+		}else{
+			Timerstarted = true;//tell loop timer has started
+			[] execVM "timer.sqf";//starttimer
+		};
 	
 		if (AGN_safeZoneAntispam )then{
 			//check if player has entered safezone recently
 			if (AGN_enteredSafezone) then{
-				//stop timer looping
-				if(Timerstarted)then{
-				
-				}else{
-				Timerstarted = true;//tell loop timer has started
-				[] execVM "timer.sqf";//starttimer
-				};
 				//check if time limt is up and message player accordingly
 				if (timesover) then{
 					//let player know time is over
