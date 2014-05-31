@@ -173,8 +173,11 @@ if (dayzPlayerLogin2 select 2) then {
 //Welcome Credits
 [] execVM "scripts\welcomecredits.sqf";
 	
-//night time ground fog
-[] execVM "scripts\ground_fog.sqf";
+//custom weather
+[] execVM "custom\EFFECTS\DynamicWeatherEffects.sqf";
+[] execVM "custom\EFFECTS\ground_fog.sqf";
+[] execVM "custom\EFFECTS\WindDust.sqf";
+[] execVM "custom\EFFECTS\earthquake.sqf";
 
 //Regen Blood
 [] execVM "scripts\regenblood.sqf";

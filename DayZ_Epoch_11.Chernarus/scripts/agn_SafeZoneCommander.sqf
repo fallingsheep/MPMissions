@@ -8,24 +8,23 @@ diag_log ( "[AGN] Starting Trader City Safezone Commander!" );
  
 if ( isDedicated || isServer ) exitWith {diag_log ( "Error: Attempting to start AGN products on a server where it should not be!" );}; 
 
-Private ["_EH_Fired", "_ehID", "_fix","_inVehicle","_inVehicleLast","_EH_Fired_Vehicle",
-		"_inVehicleDamage","_antiBackpackThread","_antiBackpackThread2"];
-		
-private ["AGN_safeZoneGodmode","AGN_safeZoneMessages","AGN_safeZone_Backpack_AllowGearFromLootPiles",
-		"AGN_safeZone_Backpack_AllowGearFromVehicles","AGN_safeZone_Backpack_AllowGearFromDeadPlayers",
-		"AGN_safeZone_Vehicles_DisableMountedGuns","AGN_safeZone_Players_DisableWeaponFiring",
-		"AGN_safeZone_Backpack_EnableAntiBackpack","AGN_safeZone_Vehicles_AllowGearFromWithinVehicles"];
+Private ["_EH_Fired", "_ehID", "_fix","_inVehicle","_inVehicleLast","_EH_Fired_Vehicle","_inVehicleDamage","_antiBackpackThread","_antiBackpackThread2","AGN_safeZoneGodmode","AGN_safeZoneMessages","AGN_safeZone_Backpack_AllowGearFromLootPiles",
+		"AGN_safeZone_Backpack_AllowGearFromVehicles","AGN_safeZone_Backpack_AllowGearFromDeadPlayers","AGN_safeZone_Vehicles_DisableMountedGuns","AGN_safeZone_Players_DisableWeaponFiring",
+		"AGN_safeZone_Backpack_EnableAntiBackpack","AGN_safeZone_Vehicles_AllowGearFromWithinVehicles","AGN_safeZoneAntispam","AGN_safeZone_Players_RemoveZombies"];
 
+//ANTI SPAM GODMODE
+AGN_safeZoneAntispam = true;								// puts a time limit on God mode when trying to leave and enter a safe zone rapidly
+AGN_safeZone_Players_RemoveZombies= true;                	//Players allowed to delete zombies near them while in safe zone
 
 //SCRIPT SETTINGS
 AGN_safeZoneDebug = false; //Debug notes on screen.
-AGN_safeZoneGodmode = true; 								//Should safezone Godmode be enabled?
+AGN_safeZoneGodmode = true; 								//Should safezone God mode be enabled?
 AGN_safeZoneMessages = true;								//Should players get messages when entering and exiting the safe zone?
 AGN_safeZone_Backpack_EnableAntiBackpack = true;			//Should players not be able to take from peoples bags?
 AGN_safeZone_Backpack_AllowGearFromLootPiles = true;		//Should players be able to loot from loot piles?
 AGN_safeZone_Backpack_AllowGearFromVehicles = true;		//Should players be able to loot from a vehicles gear?
 AGN_safeZone_Backpack_AllowGearFromDeadPlayers = true;		//Should players be able to loot from a dead players corpse?
-AGN_safeZone_Backpack_AllowFriendlyTaggedAccess = true;	//Should players who are tagged friendly be able to access eachothers bags?
+AGN_safeZone_Backpack_AllowFriendlyTaggedAccess = true;	//Should players who are tagged friendly be able to access each others bags?
 AGN_safeZone_Vehicles_DisableMountedGuns = true;			//Should players not be able to shoot bullets/projectiles from mounted guns?
 AGN_safeZone_Vehicles_AllowGearFromWithinVehicles = true;	//Should players be able to open the gear screen while they are inside a vehicle?
 AGN_safeZone_Players_DisableWeaponFiring = true;			//Should players not be able to shoot bullets/projectiles from their weapon(s)?
@@ -36,6 +35,9 @@ disableSerialization;
 waitUntil {!isNil "dayz_animalCheck"};
 if ( AGN_safeZoneMessages ) then { systemChat ( "[AGN] Trader Zone Commander Loaded!" ); };
 
+//set default value
+AGN_enteredSafezone = false;
+
 _inVehicle = objNull;
 _inVehicleLast = objNull;
 
@@ -44,18 +46,40 @@ while {true} do {
 	waitUntil { !canBuild };
 
 	_inSafezoneFinished = false;
-	if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Entering Trader Area - God Mode Enabled"); };
 	_thePlayer = player;
 
-	if ( AGN_safeZoneGodmode ) then
-	{
-		player_zombieCheck = {};
-		fnc_usec_damageHandler = {};
-		_thePlayer removeAllEventHandlers "handleDamage";
-		_thePlayer addEventHandler ["handleDamage", {false}];
-		_thePlayer allowDamage false;
+	if ( AGN_safeZoneGodmode ) then{
+		if (AGN_safeZoneAntispam )then{
+			if (AGN_enteredSafezone) then{
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam Godmode...please wait before re-entering!"); };
+			}else{
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Entering Trader Area - God Mode Enabled"); };
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You must wait 2 minutes for god mode to become active once you leave!");};
+				player_zombieCheck = {};
+				fnc_usec_damageHandler = {};
+				_thePlayer removeAllEventHandlers "handleDamage";
+				_thePlayer addEventHandler ["handleDamage", {false}];
+				_thePlayer allowDamage false;
+				AGN_enteredSafezone = true;
+			};
+		};				
 	};
-	
+	//Remove Zombies
+	if ( AGN_safeZone_Players_RemoveZombies ) then{
+        _anti_zombie = [] spawn {
+        private ["_entity_array"];
+            while {!canBuild} do
+            {
+                _entity_array = (getPos player) nearEntities ["CAManBase",110];
+                {
+                    if (_x isKindof "zZombie_Base") then {
+                        deletevehicle _x;
+                    };
+                } forEach _entity_array;
+                sleep 4;
+            };
+        };
+    };
 	if ( AGN_safeZone_Players_DisableWeaponFiring ) then
 	{
 		_EH_Fired = _thePlayer addEventHandler ["Fired", {
@@ -205,7 +229,8 @@ while {true} do {
 	AGN_LastPlayerLookedAtCountDown = 5;
 	terminate _antiBackpackThread;
 	terminate _antiBackpackThread2;
-	if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Exiting Trader Area - God Mode Disabled"); };
+	
+	if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Exiting Trader Area"); };//removed godmode disabled text
 	
 	if ( AGN_safeZone_Vehicles_DisableMountedGuns ) then
 	{
@@ -227,13 +252,29 @@ while {true} do {
 		_thePlayer removeEventHandler ["Fired", _EH_Fired];
 	};
 	
-	if ( AGN_safeZoneGodmode ) then
-	{
+	if ( AGN_safeZoneGodmode ) then{
+	//turn godmode off early just in case!
 		player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		fnc_usec_damageHandler = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandler.sqf";
 		_thePlayer addEventHandler ["handleDamage", {true}];
 		_thePlayer removeAllEventHandlers "handleDamage";
 		_thePlayer allowDamage true;
 	};
+	if (AGN_safeZoneAntispam )then{
+			
+			[2] execVM "scripts\timer.sqf";//starttimer
+			//check if player has entered safezone recently
+			if (AGN_enteredSafezone) then{
+				//check if time limt is up and message player accordingly
+				if (timesover) then{
+					//let player know time is over
+					if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
+					//reset variables
+					AGN_enteredSafezone = false;
+					timesover = false;
+				};
+			};
+		};
+	
 	_inSafezoneFinished = true;
 };
