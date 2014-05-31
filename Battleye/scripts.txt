@@ -1,0 +1,161 @@
+//new
+5 "setDamage" !"player setdamage 0;" !"player setDamage 1;" !"_vehicle setDamage 0; "!"if\("""" == typeOf _tree\) then \{\n_tree setDamage 1;\n\};" !"if\("""" == typeOf _tree\) then \{\n_tree setDamage 0.99;\n\};" !"if \(_ent isKindOf ""Animal""\) then \{\n_ent setDamage 1;\n" !"if \(_ent isKindOf ""Animal"" or _isZombie\) then \{\n_ent setDamage 1;"
+1 "addBackpackCargoGlobal" !"_holder addbackpackcargoGlobal \[_x,\(_objWpnQty select _countr\)\];"
+1 HelicopterExplo !"_expl=createVehicle \[\"HelicopterExploSmall\",\(getPosATL _v\),\[\],0,\"CAN_COLLIDE\"\];"
+5 "Logic" !"\"Logic\" createVehicleLocal" !"sideLogic" !"BIS_MPF_clientJIPlogic" !"_humanity_logic"
+5 "FunctionsManager"
+5 BattleFieldClearance
+5 "BIS_MPF_logic" !"BIS_MPF_logic = BIS_MPF_dummygroup createUnit"
+5 "BIS_MPF_dummygroup" !="BIS_MPF_dummygroup = createGroup sideLogic;" !"BIS_MPF_logic = BIS_MPF_dummygroup createUnit"
+5 _codeAHOFF
+5 _box
+5 "_first in"
+5 "_commands"
+5 "_agent setDamage 1"
+5 "_unit createUnit"
+5 "createUnit _array"
+5 "\[_pos, _grp, \";\" \+"
+5 "\+ \";\""
+5 "\+\";\""
+5 "\+ \";\"\]"
+5 "\+\";\"\]"
+5 "\], \"FunctionsManager\"\]"
+5 "\],\"FunctionsManager\"\]"
+5 "\], \"Logic\"\]"
+5 "\],\"Logic\"\]"
+5 "hint \"Server Anti-Hack is OFF\. Rejoin Server Now\""
+5 "closeDisplay ="
+5 "rJIPrequest =" !"rJIPrequest = 'JIPrequest'"
+5 "\{rJIPREQUEST" !"!isNil \{rJIPREQUEST\}"
+5 RUSTLER
+5 Ruslter
+5 "Systems Online"
+5 HangenderRE
+5 vilegaming
+5 v\.i\.l\.e
+5 Lystic
+5 setDammage
+5 "compile toString"
+5 @TheWarZ
+5 beeeh
+5 dayz-injector-menu
+5 Shadowy_NONRE
+5 "lol\car\.sqf"
+5 _cute
+5 _stuff
+5 _vgmenu
+5 _func4
+5 _genVar
+5 _rand60
+5 _first_term
+5 _skarmory
+5 _salamence
+5 "Init RE"
+5 Nigger
+5 "\"You\""
+5 "selectedItemCountLeft = lnbText"
+5 "vehicle player addaction \[\(\"<t color=\"\"#B0C4DE\"\">\" \+ \(\"ET\"\) \+\"</t>\"\),"
+5 "\"HelicopterExplobig\", \"HelicopterExploSmall\" createVehicleLocal"
+5 "\"HelicopterExploSmall\", \"HelicopterExplobig\" createVehicleLocal"
+5 "\"HelicopterExplobig\", \"HelicopterExploSmall\" createVehicle"
+5 "\"HelicopterExploSmall\", \"HelicopterExplobig\" createVehicle"
+5 "\"HelicopterExplobig\" createvehiclelocal \(position "
+5 "_classname = \"HelicopterExploBig\";"
+5 "\(getPosATL player\) nearObjects \[\"Man\", 15000\]"
+5 "\[\[\"Man\",\"Air\",\"Car\",\"Motorcycle\",\"Tank\",\"Ship\",\"StaticWeapon\"\],250000\]"
+5 action_crate1
+5 _dummyveh
+5 "case \"CODE\":"
+5 "\], 40000\]\)"
+5 "nearestObjects \[player, \[\"TentStorage\", \"TentStorageDomed\", \"TentStorageDomed2\", \"VaultStorage\", \"VaultStorageLocked\", \"LockboxStorageLocked\", \"LockboxStorage\", \"Land_A_tent\", \"WeaponHolder_ItemTent\"\], 5\];"
+5 "\(getPosATL player\) nearObjects \[\"Man\", 200\];"
+5 "\(nearestObject \[player, \"Rabbit\"\]\)"
+5 "try saving"
+5 "addMagazineCargoGlobal\[\"ItemSilverBar\",50\];"
+5 "addMagazineCargoGlobal\[\"ItemSilverBar10oz\",50\];"
+5 "addMagazineCargoGlobal\[\"ItemGoldBar\",50\];"
+5 "addMagazineCargoGlobal\[\"ItemGoldBar10oz\",50\];"
+5 "addMagazineCargoGlobal\[\"ItemBriefcase100oz\",50\];"
+5 "addMagazineCargoGlobal\[\"ItemSilverBar\",500\];"
+5 "addMagazineCargoGlobal\[\"ItemSilverBar10oz\",500\];"
+5 "addMagazineCargoGlobal\[\"ItemGoldBar\",500\];"
+5 "addMagazineCargoGlobal\[\"ItemGoldBar10oz\",500\];"
+5 "addMagazineCargoGlobal\[\"ItemBriefcase100oz\",500\];"
+
+
+5 setMarkerPosLocal !"\"setMarkerPosLocal\"," !"dayzesp.sqf"," !"rsetMarkerPosLocal = 'setMarkerPosLocal'" !"rsetMarkerPosLocalcode = compile PreprocessFile (BIS_PathMPscriptCommands + 'setMarkerPosLocal.sqf')"
+5 setDammage !"\"setDammage\"," !"looknrepair.sqf"," !"Godmode.sqf"," !"cargod.sqf"
+5 addGroupIcon !"dayzesp.sqf"
+5 setMarkerPosLocal !"dayzesp.sqf"
+5 onMapSingleClick !"dayzesp.sqf"
+5 setPosASL2 !"dayzesp.sqf"
+5 openMap !"dayzesp.sqf"
+5 drawIcon !"dayzesp.sqf"
+1 addPublicVariableEventHandler !"healp.sqf" 5 setHit !"healp.sqf" 1 setVariable !"healp.sqf"
+5 setHit !"healp.sqf"
+1 setVariable !"healp.sqf"
+5 setVehicleAmmo !"looknrepair.sqf" 5 setDamage !"looknrepair.sqf" 5 setDammage !"looknrepair.sqf"
+5 setDamage !"looknrepair.sqf"
+5 setDammage !"looknrepair.sqf"
+5 "zombieshield" !"zombieshield.sqf"
+5  addWeapon !"items.sqf" 5 addWeaponCargo !"items.sqf" 5 addMagazine !"items.sqf" 5 addMagazineCargo !"items.sqf" 5 addBackpack !"items.sqf" 5 addBackpackCargo !"items.sqf"
+5 addWeaponCargo !"items.sqf"
+5 addMagazine !"items.sqf"
+5 addMagazineCargo !"items.sqf"
+5 addBackpack !"items.sqf"
+5 addBackpackCargo !"items.sqf"
+1 allowDamage !"Godmode.sqf" 1 allowDammage !"Godmode.sqf" 5 setDammage !"Godmode.sqf" 5 setVehicleAmmo !"Godmode.sqf" 5 "God mode" !"Godmode.sqf" 5 GodMode !"Godmode.sqf"
+1 allowDammage !"Godmode.sqf"
+5 setDammage !"Godmode.sqf"
+5 setVehicleAmmo !"Godmode.sqf"
+5 "God mode" !"Godmode.sqf"
+5 GodMode !"Godmode.sqf"
+5 setDammage !"cargod.sqf" 1 setFuel !"cargod.sqf" 5 setVehicleAmmo !"cargod.sqf" 5 "God mode" !"cargod.sqf" 5 GodMode !"cargod.sqf"
+1 setFuel !"cargod.sqf"
+5 setVehicleAmmo !"cargod.sqf"
+5 "God mode" !"cargod.sqf"
+5 GodMode !"cargod.sqf"
+
+5 addMagazine !"10 x Burlap.sqf","10 x Canvas.sqf","10 x CinderBlocks.sqf","10 x Combo Lock.sqf","10 x Corrugated.sqf","10 x Empty Supply Crate.sqf","10 x Light Bulb.sqf","10 x Lumber.sqf","10 x Mortar Bucket.sqf","10 x Plywood.sqf","10 x Poles.sqf","10 x Sandbag Large.sqf","10 x Sandbag.sqf","10 x Scrap Metal.sqf","10 x Tank Trap.sqf","10 x Wire.sqf","10 x Wood Pile.sqf"
+
+5 addMagazineCargo !"10 x Burlap.sqf","10 x Canvas.sqf","10 x CinderBlocks.sqf","10 x Combo Lock.sqf","10 x Corrugated.sqf","10 x Empty Supply Crate.sqf","10 x Light Bulb.sqf","10 x Lumber.sqf","10 x Mortar Bucket.sqf","10 x Plywood.sqf","10 x Poles.sqf","10 x Sandbag Large.sqf","10 x Sandbag.sqf","10 x Scrap Metal.sqf","10 x Tank Trap.sqf","10 x Wire.sqf","10 x Wood Pile.sqf"
+
+5 addBackpack !"10 x Burlap.sqf","10 x Canvas.sqf","10 x CinderBlocks.sqf","10 x Combo Lock.sqf","10 x Corrugated.sqf","10 x Empty Supply Crate.sqf","10 x Light Bulb.sqf","10 x Lumber.sqf","10 x Mortar Bucket.sqf","10 x Plywood.sqf","10 x Poles.sqf","10 x Sandbag Large.sqf","10 x Sandbag.sqf","10 x Scrap Metal.sqf","10 x Tank Trap.sqf","10 x Wire.sqf","10 x Wood Pile.sqf"
+
+5 addBackpackCargo !"10 x Burlap.sqf","10 x Canvas.sqf","10 x CinderBlocks.sqf","10 x Combo Lock.sqf","10 x Corrugated.sqf","10 x Empty Supply Crate.sqf","10 x Light Bulb.sqf","10 x Lumber.sqf","10 x Mortar Bucket.sqf","10 x Plywood.sqf","10 x Poles.sqf","10 x Sandbag Large.sqf","10 x Sandbag.sqf","10 x Scrap Metal.sqf","10 x Tank Trap.sqf","10 x Wire.sqf","10 x Wood Pile.sqf"
+
+5 !"Camo.sqf"
+5 !"Ghille.sqf"
+5 !"Hero.sqf"
+5 !"invisible.sqf"
+5 !"Male.sqf"
+5 !"Soldier.sqf"
+5 !"adminbasesupplycrate.sqf"
+5 !"buildingmats.sqf"
+5 !"cargod.sqf"
+5 !"dayzesp.sqf"
+5 !"EnhancedESP.sqf"
+5 !"fixbuildings.sqf"
+5 !"flipvehicle.sqf"
+5 !"Godmode.sqf"
+5 !"healp.sqf"
+5 !"looknrepair.sqf"
+5 !"spectate.sqf"
+5 !"tent.sqf"
+5 !"TPtoME.sqf"
+5 !"cinder_door_kit.sqf"
+5 !"cinder_garage_kit.sqf"
+5 !"cinder_wall_kit.sqf"
+5 !"deer_stand_kit.sqf"
+5 !"fuel_pump_kit.sqf"
+5 !"FuelBarrel.sqf"
+5 !"GunRackKit.sqf"
+5 !"light_pole_kit.sqf"
+5 !"metal_panel_kit.sqf"
+5 !"OilBarrel.sqf"
+5 !"outhouse_kit.sqf"
+5 !"rusty_gate_kit.sqf"
+5 !"stick_fence_kit.sqf"
+5 !"storage_shed_kit.sqf"
+5 !"wooden_shed_kit.sqf"
+5 !"m240_nest_kit.sqf"

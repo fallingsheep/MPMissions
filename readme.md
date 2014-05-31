@@ -59,4 +59,5 @@ NOT YET IN 0.11
 ////////////////////////////////////////////////////////////////
 First relesae to support battle eye!
 Massive thanks to Kaysio (aka J0k3r)!
+1.  replace you current BE filters with these.
 
