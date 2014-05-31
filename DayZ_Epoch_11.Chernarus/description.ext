@@ -1,12 +1,9 @@
-#include "extras\custom_loot\Configs\CfgBuildingLoot.hpp"
-#include "extras\custom_loot\Configs\CfgLootSmall.hpp"
-#include "extras\custom_loot\Configs\CfgLoot.hpp"
 //////////////////////////////////BASE BUILD//////////////////////////////////
 #include "defines.hpp"
 #include "build_recipe_dialog.hpp"
 #include "build_recipe_list_dialog.hpp"
 //////////////////////////////////BASE BUILD//////////////////////////////////
-
+#include "loot\config\cfgbuildingloot.hpp"
 respawn = "BASE";
 respawndelay = 5;
 onLoadMission= "DayZ Epoch Chernarus";
@@ -98,51 +95,6 @@ class DayZ_loadingScreen
 		};
 	};
 };
-
-
-
-// logo watermark
-class RscTitles {
-	class wm_disp {
-		idd = -1;
-		onLoad = "uiNamespace setVariable ['wm_disp', _this select 0]";
-		fadein = 0;
-		fadeout = 0;
-		duration = 10e10;
-		controlsBackground[] = {};
-		objects[] = {};
-		class controls {
-			class wm_text2 {
-				idc = 1;
-				x = safeZoneX+0.027;//safeZoneW*0.01;
-				y = safeZoneY+safeZoneH-0.16;
-				w = 1.151*safeZoneH;
-				h = 0.057*safeZoneH;
-				shadow = 2;
-				class Attributes
-				{
-					font = "EtelkaNarrowMediumPro";
-					color = "#24FFFFFF";
-					align = "left"; // put "center" here if you want some background
-					valign = "middle";
-					shadow = 2;
-				};
-				colorBackground[] = { 1, 0.3, 0, 0 };  // uncomment and increase 4th number to have a background
-				font = "EtelkaNarrowMediumPro";
-				size = 0.06*safeZoneH;
-				type = 13;
-				style = 0;
-				text="";
-			};
-		};
-
-	};
-};
-
-
-
-
-
 class CfgSounds
 {
 	sounds[] = {};
@@ -177,15 +129,8 @@ class CfgSounds
     sound[] = {sound\Sirens2.ogg, db-6, 1.0};
     titles[] = {""};
 	};
-	class deathscreen
-    {
-    name="deathscreen";
-    sound[]={suspense_6.ogg, db-6, 1};
-    titles[] = {};
-    };
-
 };
-
-
-
 #include "custom\snap_build\points.hpp"
+#include "addons\DRNdialogs.hpp"
+// Epoch Admin Tools
+#include "admintools\dialog.hpp"

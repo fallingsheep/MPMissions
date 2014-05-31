@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////////
-//				INSTALL GUIDE - 0.10 - Organised
+//				INSTALL GUIDE - 0.11 - Collabartion
 ////////////////////////////////////////////////////////////////
+Massive thanks to Kaysio (aka J0k3r) for his awesome contribution to the repack
+
 YOU MUST HAVE A EXISTING EPOCH 1.0.4.2 SERVER WORKING BEFORE USING THIS!!
 
 !!!!IMPORTANT!!!!
@@ -20,7 +22,6 @@ REPLACE YOUR MPMISSON PBO WITH THE ON INCLDUED (IF YOU DONT USE A MPMISSION PBO 
 
 THATS IT!
 
-THERE IS NO BATTLE EYE SUPPORT!!
 
 CHECK YOUR SERVER PROVIDER FOR HOW TO GET ACCESS TO CHANGE YOUR MPMISSION AND SERVER PBO'S
 
@@ -28,7 +29,7 @@ CHECK YOUR SERVER PROVIDER FOR HOW TO GET ACCESS TO CHANGE YOUR MPMISSION AND SE
 //				TURN SCRIPTS ON/OFF
 ////////////////////////////////////////////////////////////////
 
-NOT YET IN 0.10
+NOT YET IN 0.11
 
 
 ////////////////////////////////////////////////////////////////
@@ -51,5 +52,11 @@ NOT YET IN 0.10
 //			CHANGE DEBUG MONITOR
 ////////////////////////////////////////////////////////////////
 1.	unpack your MPMISSION PBO (if you dont use the PBO and Use a folder goto step 2)
-2.	open "scripts\debug_monitor.sqf"
+2.	open "custom\Stats\debug_monitor.sqf"
+
+////////////////////////////////////////////////////////////////
+//			BATTLE EYE
+////////////////////////////////////////////////////////////////
+First relesae to support battle eye!
+Massive thanks to Kaysio (aka J0k3r)!
 
