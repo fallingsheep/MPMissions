@@ -18,7 +18,14 @@ class Mission
 		"pook_h13",
 		"csj_gyroac",
 		"map_eu",
-		"jetskiyanahuiaddon"
+		"warehouse",
+		"jetskiyanahuiaddon",
+		"kpfswaysigns",
+		"buildings3",
+		"mbg_african_buildings",
+        "mbg_killhouses",
+		"mbg_buildings_3",
+        "aif_arma1buildings"
 	};
 	addOnsAuto[]=
 	{
@@ -40,7 +47,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			side="WEST";
@@ -1169,6 +1176,24 @@ class Mission
 				};
 			};
 		};
+		class Item2
+        {
+            side="LOGIC";
+            class Vehicles
+            {
+                items=1;
+                class Item0
+                {
+                    position[]={6288.5488,304.98645,7825.8896};
+                    id=3;
+                    side="LOGIC";
+                    vehicle="Logic";
+                    leader=1;
+                    skill=0.60000002;
+                    
+                };
+            };
+        };
 
 	};
 	class Markers

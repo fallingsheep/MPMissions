@@ -1,73 +1,66 @@
-	
+// Remove Parts from Vehicles - By SilverShot.
 
-    private ["_part","_cancel","_color","_percent","_string","_handle","_damage","_cmpt","_vehicle","_hitpoints"];
-     
-    // [ _trader_id, _category, _action ];
-    // _activatingPlayer = _this select 1;
-     
-    _vehicle = _this select 3;
-     
-    {dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
-    // dayz_myCursorTarget = _vehicle;
-     
-    //_allFixed = true;
-    _hitpoints = _vehicle call vehicle_getHitpoints;
-    //diag_log format["DEBUG SALVAGE: %1", _hitpoints];
-    {                      
-            _damage = [_vehicle,_x] call object_getHit;
-            _part = "PartGeneric";
-     
-            //change "HitPart" to " - Part" rather than complicated string replace
-            _cmpt = toArray (_x);
-            _cmpt set [0,20];
-            _cmpt set [1,toArray ("-") select 0];
-            _cmpt set [2,20];
-            _cmpt = toString _cmpt;
-           
-            if(["Engine",_x,false] call fnc_inString) then {
-                    _part = "PartEngine";
-            };
-                   
-            if(["HRotor",_x,false] call fnc_inString) then {
-                    _part = "PartVRotor"; //yes you need PartVRotor to fix HRotor LOL
-            };
-     
-            if(["Fuel",_x,false] call fnc_inString) then {
-                    _part = "PartFueltank";
-            };
-     
-            if(["Wheel",_x,false] call fnc_inString) then {
-                    _part = "PartWheel";
-            };     
-                   
-            if(["Glass",_x,false] call fnc_inString) then {
-                    _part = "PartGlass";
-            };
-     
-            // allow removal of any lightly damaged parts
-             if (_damage < 1 ) then {
-                   
-                    // Do not allow removal of engine or fueltanks
-                    if( _part == "PartGlass" or _part == "PartWheel" or _part == "PartEngine" or _part == "PartVRotor" or _part == "PartFueltank" or _part == "PartGeneric" ) then {
-     
-                            _color = "color='#ffff00'"; //yellow
-                            if (_damage >= 0.5) then {_color = "color='#ff8800'";}; //orange
-                            if (_damage >= 0.9) then {_color = "color='#ff0000'";}; //red
-     
-                            _percent = round(_damage*100);
-                            _string = format["<t %2>Remove%1 (%3 %4)</t>",_cmpt,_color,_percent,"%"]; //Remove - Part
-                            _handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\salvage.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
-                            s_player_repairActions set [count s_player_repairActions,_handle];
-                           
-                    };
-            };
-     
-    } forEach _hitpoints;
-     
-    if(count _hitpoints > 0 ) then {
-           
-            _cancel = dayz_myCursorTarget addAction ["Cancel", "\z\addons\dayz_code\actions\repair_cancel.sqf","repair", 0, true, false, "",""];
-            s_player_repairActions set [count s_player_repairActions,_cancel];
-            s_player_repair_crtl = 1;
-    };
+private["_vehicle","_part","_hitpoint","_type","_selection","_array"];
+_id = _this select 2;
+_array = 	_this select 3;
+_vehicle = 	_array select 0;
+_part =		_array select 1;
+_hitpoint = _array select 2;
+_type = typeOf _vehicle;
 
+_hasToolbox = 	"ItemToolbox" in items player;
+
+_nameType = 		getText(configFile >> "cfgVehicles" >> _type >> "displayName");
+_namePart = 		getText(configFile >> "cfgMagazines" >> _part >> "displayName");
+
+if (_hasToolbox) then {
+	if (getDammage _vehicle < 2) then {
+
+		_damage = [_vehicle,_hitpoint] call object_getHit;
+
+		if( _damage < 0.20 ) then {
+			_result = [player,_part] call BIS_fnc_invAdd;
+			if (_result) then {
+
+				{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;
+				s_player_removeActions = [];
+				silver_myCursorTarget = objNull;
+
+				_selection = getText(configFile >> "cfgVehicles" >> _type >> "HitPoints" >> _hitpoint >> "name");
+				if( _hitpoint == "HitEngine" or _hitpoint == "HitFuel" ) then {
+					dayzSetFix = [_vehicle,_selection,0.89];
+				} else {
+					dayzSetFix = [_vehicle,_selection,1];
+				};
+				publicVariable "dayzSetFix";
+				if (local _vehicle) then {
+					dayzSetFix call object_setFixServer;
+				};
+
+				player playActionNow "Medic";
+				sleep 1;
+
+				[player,"repair",0,false] call dayz_zombieSpeak;
+				null = [player,10,true,(getPosATL player)] spawn player_alertZombies;
+				sleep 5;
+				_vehicle setvelocity [0,0,1];
+
+				cutText [format["You have successfully taken %1 from the %2",_namePart,_nameType], "PLAIN DOWN"];
+			} else {
+				cutText [localize "str_player_24", "PLAIN DOWN"];
+			};
+		} else {
+			cutText [format["Cannot remove %1 from %2, the part has been damaged.",_namePart,_nameType], "PLAIN DOWN"];
+		};
+	} else {
+		{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;
+		s_player_removeActions = [];
+		silver_myCursorTarget = objNull;
+	};
+};
+
+if( silver_myCursorTarget != objNull ) then {
+	{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;
+	s_player_removeActions = [];
+	silver_myCursorTarget = objNull;
+};
