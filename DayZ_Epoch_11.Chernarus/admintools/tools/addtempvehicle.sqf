@@ -9,7 +9,7 @@ private ["_veh","_location","_isOk","_vehtospawn","_part_in","_qty_in","_qty","_
  _worldspace = [_dir,_pos];
  
 cutText ["Starting Spawn, stand still to complete spawn.", "PLAIN DOWN"];
- 
+
 _location = _pos;
  
 _veh = createVehicle [_vehtospawn, _pos, [], 0, "CAN_COLLIDE"];
@@ -19,3 +19,10 @@ clearMagazineCargoGlobal _veh;
 clearWeaponCargoGlobal _veh;
  
 cutText ["Spawned a vehicle.", "PLAIN DOWN"];
+
+if ( AdminTrackTempVehicles ) {
+	_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	diag_log format["[ADMIN TOOLS] - SPAWN TEMP VEHICLE - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ];
+};

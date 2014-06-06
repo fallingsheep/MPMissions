@@ -36,4 +36,10 @@ if (pselect5 != "exit") then
 			detach (vehicle player);
 		};
 	} forEach entities "CAManBase";
+	if ( AdminTrackTpToPlayer ) {
+		_playerpos = getPos player;
+		_playerUID = getplayerUID player;
+		_playerName = name player;
+		diag_log format["[ADMIN TOOLS] - TELEPORT TO PLAYER - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _playerpos ];
+	};
 };

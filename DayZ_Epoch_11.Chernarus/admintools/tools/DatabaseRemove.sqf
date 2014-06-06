@@ -24,6 +24,12 @@ _fnc_databaseremtimer = {
 
 _func_databaseremove = {
 	cutText ["Object deleted from Databse", "PLAIN DOWN",1];
+if ( AdminTrackDeleteDatabase ) {
+	_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	diag_log format["[ADMIN TOOLS] - DATABASE DELETE - Admin Name: %1 UID: %2 Position: %3 Object: %4 ObjectID: %5 ObjectUID" , _playerName, _playerUID, _pos, _obj, _objectID, _objectUID ];
+};
 	PVDZE_obj_Delete = [_objectID,_objectUID];
 	publicVariableServer "PVDZE_obj_Delete";
 	if (isServer) then {

@@ -79,12 +79,30 @@ modToggleOFF =
 };
 
 if(modMode) then {
+if ( AdminTrackAdminMode ) {
+_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	//LOG TO RPT
+	_log  = (format["[ADMIN TOOLS] - ADMIN MODE ON  - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ]);
+	admin_Log = [_log];
+	publicVariableServer "admin_Log";
+};
 	cutText ["God Mode, Vehicle God Mode, ESP, Inf Ammo, and Grass OFF - ENABLED","PLAIN DOWN"];titleFadeOut 4;
 	titleText ["***Press F4 to toggle Mod-Mode options***","PLAIN"];titleFadeOut 5;
 	F4_KEY = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) == 62) then {call optionMenu;};"];
 	call modToggleON;
 }
 else{
+if ( AdminTrackAdminMode ) {
+_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	//LOG TO RPT
+	_log  = (format["[ADMIN TOOLS] - ADMIN MODE OFF  - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ]);
+	admin_Log = [_log];
+	publicVariableServer "admin_Log";
+};
 	titleText ["Mod Mode - DISABLED","PLAIN DOWN"];titleFadeOut 3;
 	(findDisplay 46) displayRemoveEventHandler ["KeyDown", F4_KEY];
 	call modToggleOFF;

@@ -7,7 +7,8 @@ nlist = [];
 selecteditem = "";
 
 if (isNil "spectate") then {spectate = true;} else {spectate = !spectate;};
-if (spectate) then 
+if (spectate) then
+
 {	 
 	{if (_x != player) then {nlist set [count nlist, name _x];};} forEach playableUnits;
 		
@@ -47,6 +48,12 @@ if (spectate) then
 		} forEach playableUnits;
 	};
 	spectate = false;
+	
+	if ( AdminTrackSpectate ) {
+		_playerUID = getplayerUID player;
+		_playerName = name player;
+		diag_log format["[ADMIN TOOLS] - SPECTATE - Admin Name: %1 UID: %2 Player: %3" , _playerName, _playerUID, _name ];
+	};
 };
 if (!spectate) then 
 {	

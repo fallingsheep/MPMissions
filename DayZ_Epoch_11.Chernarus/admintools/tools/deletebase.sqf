@@ -40,6 +40,12 @@ switch (_option) do {
 			{
 				deleteVehicle _x;
 			} forEach _objects;
+			if ( AdminTrackBaseDelete) {
+				_pos = getPos player;
+				_playerUID = getplayerUID player;
+				_playerName = name player;
+				diag_log format["[ADMIN TOOLS] - BASE DELETED - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos];
+			};
 		};
 	};
 	case "destroy": {

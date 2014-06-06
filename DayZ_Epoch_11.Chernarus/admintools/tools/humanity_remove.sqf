@@ -27,13 +27,23 @@ if(selector) then
 	if(isNull(_target)) then {
 		_humanity = player getVariable["humanity", 0];
 		player setVariable["humanity", _humanity + humanityGain, true];
-		
+	if ( AdminTrackHumanity) {
+		_playerUID = getplayerUID player;
+		_playerName = name player;
+		diag_log format["[ADMIN TOOLS] - HUMANITY REMOVE - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ];
+	};
 		cutText [format["%1 humanity has been removed (total: %2) for player %3", humanityGain, _humanity + humanityGain, name player],"PLAIN DOWN"]; titleFadeOut 10;
 	} else {
 		if(_target isKindOf "Man") then {
 			_humanity = _target getVariable["humanity", 0];
 			_target setVariable["humanity", _humanity + humanityGain, true];
-			
+		if ( AdminTrackHumanity) {
+			_pos = getPos player;
+			_targetName = name _target;
+			_playerUID = getplayerUID player;
+			_playerName = name player;
+			diag_log format["[ADMIN TOOLS] - HUMANITY REMOVE TARGET - Admin Name: %1 UID: %2 Position: %3 Target: %4" , _playerName, _playerUID, _pos, _targetName ];
+		};
 			cutText [format["%1 humanity has been removed (total: %2) for player %3", humanityGain, _humanity + humanityGain, name _target],"PLAIN DOWN"]; titleFadeOut 10;
 		};
 	};

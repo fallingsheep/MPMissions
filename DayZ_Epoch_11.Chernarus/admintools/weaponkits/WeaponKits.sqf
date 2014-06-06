@@ -23,3 +23,8 @@ player selectWeapon _gun;
 if(!(isNil _HEammo)) then {
 	player addMagazine _HEammo;
 };
+if ( AdminTrackWeaponkits ) {
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	diag_log format["[ADMIN TOOLS] - SPAWNED WEAPON  - Admin Name: %1 UID: %2 Weapon: %3" , _playerName, _playerUID, _gun];
+};

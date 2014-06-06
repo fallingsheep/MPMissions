@@ -59,5 +59,44 @@ NOT YET IN 0.11
 ////////////////////////////////////////////////////////////////
 First relesae to support battle eye!
 Massive thanks to Kaysio (aka J0k3r)!
-1.  replace you current BE filters with these.
+1.	replace you current BE filters with these.
 
+
+
+////////////////////////////////////////////////////////////////
+//			SCRIPTS/ADDONS
+////////////////////////////////////////////////////////////////
+Base Building 1.3
+Admin Tools
+Debug Monitor 
+Self Bloodbag
+Take clothes 
+Tent sleep healing
+Zombie Bait + Zombie Bomb
+Suicide
+DZAI
+DZMS
+Burn Tents
+Drink Water
+Fast Roping
+Building Snapping
+AI Bus Route
+Heli Lift
+Towing
+AGN Safezones
+Animated Heli Crashes
+Auto Refuel
+Bury Body
+Salvage Parts
+Regen Blood
+Taunt nearby Zombies
+Snow
+Anti-Zombie Emitter
+Street Lights
+House Lights
+Tower Lights
+Animated C130 crashes
+Air Raid
+Welcome Credits
+Custom loading Screen
+Custom Loot

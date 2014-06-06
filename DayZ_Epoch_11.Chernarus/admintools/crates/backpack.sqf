@@ -47,6 +47,12 @@ delaymenu =
 showCommandingMenu "#USER:delaymenu";
 WaitUntil{DelaySelected};
 DelaySelected=false;
+if ( AdminTrackBackpackCrate ) {
+		_pos = getPos player;
+		_playerUID = getplayerUID player;
+		_playerName = name player;
+		diag_log format["[ADMIN TOOLS] - SPAWNED BACKPACK CRATE  - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ];
+};
 titleText [format[_crateName + " will disappear in %1 seconds.",SelectDelay],"PLAIN DOWN"]; titleFadeOut 4;
 sleep SelectDelay;
 

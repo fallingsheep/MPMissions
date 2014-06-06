@@ -549,51 +549,107 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 //####----####----####---- Base Building 1.3 End ----####----####----####
 
-	if (DZE_HeliLift) then {
-		_liftHeli = objNull;
-		_found = false;
-	
-		_allowTow = false;
-		if ((count (crew _cursorTarget)) == 0) then {
-			{
-				if(!_allowTow) then {
-					_allowTow = _cursorTarget isKindOf _x;
-				};
-			} forEach DZE_HeliAllowToTow;
-		};
-
-		//diag_log format["CREW: %1 ALLOW: %2",(count (crew _cursorTarget)),_allowTow];
-
-		if (_allowTow) then {
-			_liftHelis = nearestObjects [player, DZE_HeliAllowTowFrom, 15];
-			{
-				if(!_found) then {
-					_posL = getPos _x;
-					_posC = getPos _cursorTarget;
-					_height = (_posL select 2) - (_posC select 2);
-					_hasAttached = _x getVariable["hasAttached",false];
-					if(_height < 15 and _height > 5 and (typeName _hasAttached != "OBJECT")) then {
-						if(((abs((_posL select 0) - (_posC select 0))) < 10) and ((abs((_posL select 1) - (_posC select 1))) < 10)) then {
-							_liftHeli = _x;
-							_found = true;
-						};
-					};
-				};
-			} forEach _liftHelis;
-		};
-
-		//diag_log format["HELI: %1 TARGET: %2",_found,_cursorTarget];
-
-		_attached = _cursorTarget getVariable["attached",false];
-		if(_found and _allowTow and _canDo and !locked _cursorTarget and !_isPZombie and (typeName _attached != "OBJECT")) then {
-			if (s_player_heli_lift < 0) then {
-				s_player_heli_lift = player addAction ["Attach to Heli", "\z\addons\dayz_code\actions\player_heliLift.sqf",[_liftHeli,_cursorTarget], -10, false, true, "",""];
-			};
-		} else {
-			player removeAction s_player_heli_lift;
-			s_player_heli_lift = -1;
-		};
-	};
+//heli lift
+    	if (DZE_HeliLift) then {
+    _liftHeli = objNull;
+    _found = false;
+    _allowTow = false;
+    if ((count (crew _cursorTarget)) == 0) then {
+    { if(!_allowTow) then { _allowTow = _cursorTarget isKindOf _x; }; } forEach DZE_HeliAllowToTowLight;
+    if(_allowTow) then { _lightweight = true; } else { _lightweight = false; };
+    };
+    if ((count (crew _cursorTarget)) == 0) then {
+    { if(!_allowTow) then { _allowTow = _cursorTarget isKindOf _x; }; } forEach DZE_HeliAllowToTowMedium;
+    if(_allowTow and !_lightweight) then { _mediumweight = true; } else { _mediumweight = false; };
+    };
+    if ((count (crew _cursorTarget)) == 0) then {
+    { if(!_allowTow) then { _allowTow = _cursorTarget isKindOf _x; }; } forEach DZE_HeliAllowToTowHeavy;
+    if(_allowTow and !_lightweight and !_mediumweight) then { _heavyweight = true; } else { _heavyweight = false; };
+    };
+    if ((count (crew _cursorTarget)) == 0) then {
+    { if(!_allowTow) then { _allowTow = _cursorTarget isKindOf _x; }; } forEach DZE_HeliAllowToTowSuperHeavy;
+    if(_allowTow and !_lightweight and !_mediumweight and !_heavyweight) then { _superheavyweight = true; } else { _superheavyweight = false; };
+    };
+    //diag_log format["CREW: %1 ALLOW: %2",(count (crew _cursorTarget)),_allowTow];
+    if (_allowTow and _lightweight and !_found) then {
+    _liftHelis = nearestObjects [player, DZE_HeliAllowTowFromLight, 15];
+    {
+    if(!_found) then {
+    _posL = getPos _x;
+    _posC = getPos _cursorTarget;
+    _height = (_posL select 2) - (_posC select 2);
+    _hasAttached = _x getVariable["hasAttached",false];
+    if(_height < 15 and _height > 5 and (typeName _hasAttached != "OBJECT")) then {
+    if(((abs((_posL select 0) - (_posC select 0))) < 10) and ((abs((_posL select 1) - (_posC select 1))) < 10)) then {
+    _liftHeli = _x;
+    _found = true;
+    };
+    };
+    };
+    } forEach _liftHelis;
+    };
+    if ( _allowTow and !_found and ( _mediumweight or _lightweight ) ) then {
+    _liftHelis = nearestObjects [player, DZE_HeliAllowTowFromMedium, 15];
+    {
+    if(!_found) then {
+    _posL = getPos _x;
+    _posC = getPos _cursorTarget;
+    _height = (_posL select 2) - (_posC select 2);
+    _hasAttached = _x getVariable["hasAttached",false];
+    if(_height < 15 and _height > 5 and (typeName _hasAttached != "OBJECT")) then {
+    if(((abs((_posL select 0) - (_posC select 0))) < 10) and ((abs((_posL select 1) - (_posC select 1))) < 10)) then {
+    _liftHeli = _x;
+    _found = true;
+    };
+    };
+    };
+    } forEach _liftHelis;
+    };
+    if ( _allowTow and !_found and ( _heavyweight or _mediumweight or _lightweight ) ) then {
+    _liftHelis = nearestObjects [player, DZE_HeliAllowTowFromHeavy, 15];
+    {
+    if(!_found) then {
+    _posL = getPos _x;
+    _posC = getPos _cursorTarget;
+    _height = (_posL select 2) - (_posC select 2);
+    _hasAttached = _x getVariable["hasAttached",false];
+    if(_height < 15 and _height > 5 and (typeName _hasAttached != "OBJECT")) then {
+    if(((abs((_posL select 0) - (_posC select 0))) < 10) and ((abs((_posL select 1) - (_posC select 1))) < 10)) then {
+    _liftHeli = _x;
+    _found = true;
+    };
+    };
+    };
+    } forEach _liftHelis;
+    };
+    if ( _allowTow and !_found and ( _superheavyweight or _heavyweight or _mediumweight or _lightweight ) ) then {
+    _liftHelis = nearestObjects [player, DZE_HeliAllowTowFromSuperHeavy, 15];
+    {
+    if(!_found) then {
+    _posL = getPos _x;
+    _posC = getPos _cursorTarget;
+    _height = (_posL select 2) - (_posC select 2);
+    _hasAttached = _x getVariable["hasAttached",false];
+    if(_height < 15 and _height > 5 and (typeName _hasAttached != "OBJECT")) then {
+    if(((abs((_posL select 0) - (_posC select 0))) < 10) and ((abs((_posL select 1) - (_posC select 1))) < 10)) then {
+    _liftHeli = _x;
+    _found = true;
+    };
+    };
+    };
+    } forEach _liftHelis;
+    };
+    //diag_log format["HELI: %1 TARGET: %2",_found,_cursorTarget];
+    _attached = _cursorTarget getVariable["attached",false];
+    if(_found and _allowTow and _canDo and !locked _cursorTarget and !_isPZombie and (typeName _attached != "OBJECT")) then {
+    if (s_player_heli_lift < 0) then {
+    s_player_heli_lift = player addAction ["Attach to Heli", "\z\addons\dayz_code\actions\player_heliLift.sqf",[_liftHeli,_cursorTarget], -10, false, true, "",""];
+    };
+    } else {
+    player removeAction s_player_heli_lift;
+    s_player_heli_lift = -1;
+    };
+    };
 	
 	// Allow Owner to lock and unlock vehicle  
 	if(_player_lockUnlock_crtl) then {

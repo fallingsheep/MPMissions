@@ -16,6 +16,13 @@ teleport = {
 	openMap [false, false];
 	TitleText [format[""], "PLAIN DOWN"];
 	_done = true;
+	if ( AdminTrackTeleport ) {
+		_playerpos = getPos player;
+		_playerUID = getplayerUID player;
+		_playerName = name player;
+		diag_log "[ADMIN TOOLS] - TELEPORT";
+		diag_log format["[ADMIN TOOLS] - TELEPORT - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _playerpos ];
+	};
 };
 
 closedialog 0;

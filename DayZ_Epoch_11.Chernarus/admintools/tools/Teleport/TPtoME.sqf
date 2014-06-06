@@ -38,7 +38,12 @@ if (pselect5 != "exit") then
 			_x attachTo [vehicle player, [2, 2, 0]];
 			sleep 0.25;
 			detach _x;
-			
+				if ( AdminTrackTpToMe) {
+					_playerpos = getPos player;
+					_playerUID = getplayerUID player;
+					_playerName = name player;
+					diag_log format["[ADMIN TOOLS] - TELEPORT TO ME - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _playerpos ];
+				};
 			_tempException = nil;
 			tempList = [
 				"_tempException"

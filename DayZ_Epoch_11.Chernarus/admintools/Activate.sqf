@@ -1,3 +1,42 @@
+//Tools
+AdminTrackVehicles = true;
+AdminTrackTempVehicles = true;
+AdminTrackHumanity = true;
+AdminTrackDeleteObjects =true;
+AdminTrackRefuel = true;
+AdminTrackRepair = true;
+AdminTrackSafezone = true;
+AdminTrackSpectate = true;
+AdminTrackLockVehicles = true;
+AdminTrackUnLockVehicles = true;
+AdminTrackZombiesheild = true;
+AdminTrackDeleteDatabase = true;
+AdminTrackBaseDelete = true;
+AdminTrackFlipVehicle = true;
+AdminTrackGetCode = true;
+AdminTrackGiveKey = true;
+AdminTrackHeal = true;
+//Teleports
+AdminTrackTeleport = true;
+AdminTrackTpToPlayer  = true;
+AdminTrackTpToMe  = true;
+//Admin mode
+AdminTrackAdminMode = true;
+//Skins
+AdminTrackSkins = true;
+//Gear and item changes
+AdminTrackDeleteGear = true;
+AdminTrackBackpack = true;
+AdminTrackItems = true;
+//weapons
+AdminTrackWeaponkits = true;
+//crates
+AdminTrackWeaponCrate = true;
+AdminTrackItemCrate = true;
+AdminTrackBuildingCrate = true;
+AdminTrackBackpackCrate = true;
+AdminTrackAllCrate = true;
+
 if ((getPlayerUID player) in AdminList || (getPlayerUID player) in ModList) then {
 
 	if (isnil "tracker") then {tracker = true;};

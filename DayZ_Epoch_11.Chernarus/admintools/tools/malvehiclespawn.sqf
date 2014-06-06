@@ -45,7 +45,12 @@ _location = (getPosATL _veh);
 PVDZE_veh_Publish2 = [_veh,[_dir,_location],_vehtospawn,false,_keySelected,_activatingPlayer];
 publicVariableServer  "PVDZE_veh_Publish2";
 player reveal _veh;
- 
+if ( AdminTrackVehicles ) {
+	_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	diag_log format["[ADMIN TOOLS] - SPAWN VEHICLE - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ];
+};
 cutText [format[("Vehicle Spawned and key added."),_qty_in,_textPartIn,_textPartOut], "PLAIN DOWN"];
  
 } else {

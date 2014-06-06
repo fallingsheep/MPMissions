@@ -48,6 +48,13 @@ publicVariableServer  "PVDZE_veh_Publish2";
 player reveal _veh;
  
 cutText [format[("Spawned a vehicle, key added to toolbelt."),_qty_in,_textPartIn,_textPartOut], "PLAIN DOWN"];
+
+if ( AdminTrackVehicles ) {
+	_pos = getPos player;
+	_playerUID = getplayerUID player;
+	_playerName = name player;
+	diag_log format["[ADMIN TOOLS] - SPAWN TEMP VEHICLE - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ];
+};
  
 } else {
 cutText ["You do not have enough room on your toolbelt.", "PLAIN DOWN"];

@@ -97,3 +97,15 @@
 
 //Drinkwater
 s_player_drinkWater = -1;
+
+//Heli lift
+    DZE_HeliAllowTowFromSuperHeavy = ["CH_47F_EP1","CH_47F_BAF","CH_47F_EP1_DZ","CH_47F_EP1_DZE"];
+    DZE_HeliAllowTowFromHeavy = ["UH60_Base","BAF_Merlin_DZE","BAF_Merlin_HC3_D","Mi17_Base"];
+    DZE_HeliAllowTowFromMedium = ["UH1Y_DZE","UH1H_DZE","Ka60_PMC","Ka60_GL_PMC","Mi24_P"];
+    DZE_HeliAllowTowFromLight = ["AH6X_DZ","MH6J_DZ","pook_H13_medevac","pook_H13_amphib","pook_H13_transport"];
+     
+     
+    DZE_HeliAllowToTowSuperHeavy = ["Motorcycle","Car","Truck","Wheeled_APC","Tracked_APC"];
+    DZE_HeliAllowToTowHeavy = ["hilux1_civil_1_open","HMMWV_Base","Lada_base","Offroad_DSHKM_base","Pickup_PK_base","SkodaBase","tractor","VWGolf","Volha_TK_CIV_Base_EP1","S1203_TK_CIV_EP1","SUV_Base_EP1","ArmoredSUV_Base_PMC","UAZ_Base","LandRover_Base","GLT_M300_LT","GLT_M300_ST","ATV_US_EP1","ATV_CZ_EP1","Motorcycle","Ship"];
+    DZE_HeliAllowToTowMedium = ["hilux1_civil_1_open","Lada_base","Offroad_DSHKM_base","Pickup_PK_base","SkodaBase","tractor","VWGolf","Volha_TK_CIV_Base_EP1","S1203_TK_CIV_EP1","SUV_Base_EP1","UAZ_Base","LandRover_Base","GLT_M300_LT","GLT_M300_ST","ATV_US_EP1","ATV_CZ_EP1","Motorcycle","Ship"];
+    DZE_HeliAllowToTowLight = ["Motorcycle","ATV_US_EP1","ATV_CZ_EP1"];

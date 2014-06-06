@@ -6,7 +6,7 @@
 
 diag_log ( "[AGN] Starting Trader City Safezone Commander!" );
  
-if ( isDedicated || isServer ) exitWith {diag_log ( "Error: Attempting to start AGN products on a server where it should not be!" );}; 
+//if ( isDedicated || isServer ) exitWith {diag_log ( "Error: Attempting to start AGN products on a server where it should not be!" );}; 
 
 Private ["_EH_Fired", "_ehID", "_fix","_inVehicle","_inVehicleLast","_EH_Fired_Vehicle","_inVehicleDamage","_antiBackpackThread","_antiBackpackThread2","AGN_safeZoneGodmode","AGN_safeZoneMessages","AGN_safeZone_Backpack_AllowGearFromLootPiles",
 		"AGN_safeZone_Backpack_AllowGearFromVehicles","AGN_safeZone_Backpack_AllowGearFromDeadPlayers","AGN_safeZone_Vehicles_DisableMountedGuns","AGN_safeZone_Players_DisableWeaponFiring",
@@ -14,7 +14,8 @@ Private ["_EH_Fired", "_ehID", "_fix","_inVehicle","_inVehicleLast","_EH_Fired_V
 
 //ANTI SPAM GODMODE
 AGN_safeZoneAntispam = true;								// puts a time limit on God mode when trying to leave and enter a safe zone rapidly
-AGN_safeZone_Players_RemoveZombies= true;                	//Players allowed to delete zombies near them while in safe zone
+AGN_safeZone_Players_RemoveZombies = true;                	// delete zombies near  safe zone			
+AGN_safezone_Inngame_Debug = true;
 
 //SCRIPT SETTINGS
 AGN_safeZoneDebug = false; //Debug notes on screen.
@@ -35,24 +36,27 @@ disableSerialization;
 waitUntil {!isNil "dayz_animalCheck"};
 if ( AGN_safeZoneMessages ) then { systemChat ( "[AGN] Trader Zone Commander Loaded!" ); };
 
-//set default value
-AGN_enteredSafezone = false;
 
 _inVehicle = objNull;
 _inVehicleLast = objNull;
+_thePlayer = player;
 
 while {true} do {
 	
 	waitUntil { !canBuild };
 
 	_inSafezoneFinished = false;
-	_thePlayer = player;
+	//_thePlayer = player;// do we need to loops this it wont change will it?
 
 	if ( AGN_safeZoneGodmode ) then{
+	
+	//when player enters safezone
 		if (AGN_safeZoneAntispam )then{
 			if (AGN_enteredSafezone) then{
 				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam Godmode...please wait before re-entering!"); };
 			}else{
+			if ( AGN_safezone_Inngame_Debug ) then { systemChat ("[AGN] DEBUG - AGN_enteredSafezone = TRUE"); };
+				AGN_enteredSafezone = true;//player has entered safezone
 				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Entering Trader Area - God Mode Enabled"); };
 				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You must wait 2 minutes for god mode to become active once you leave!");};
 				player_zombieCheck = {};
@@ -60,9 +64,16 @@ while {true} do {
 				_thePlayer removeAllEventHandlers "handleDamage";
 				_thePlayer addEventHandler ["handleDamage", {false}];
 				_thePlayer allowDamage false;
-				AGN_enteredSafezone = true;
+				
 			};
-		};				
+		}else{
+			if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Entering Trader Area - God Mode Enabled"); };
+				player_zombieCheck = {};
+				fnc_usec_damageHandler = {};
+				_thePlayer removeAllEventHandlers "handleDamage";
+				_thePlayer addEventHandler ["handleDamage", {false}];
+				_thePlayer allowDamage false;
+		};		
 	};
 	//Remove Zombies
 	if ( AGN_safeZone_Players_RemoveZombies ) then{
@@ -192,6 +203,7 @@ while {true} do {
 				};
 				if ( _skip && _if ) then {
 					if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] This player is tagged friendly, you have access to this players bag") };
+					sleep 30;
 				};
 			};
 		};
@@ -253,28 +265,42 @@ while {true} do {
 	};
 	
 	if ( AGN_safeZoneGodmode ) then{
-	//turn godmode off early just in case!
+	//turn god mode off early just in case!
 		player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		fnc_usec_damageHandler = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandler.sqf";
 		_thePlayer addEventHandler ["handleDamage", {true}];
 		_thePlayer removeAllEventHandlers "handleDamage";
 		_thePlayer allowDamage true;
+		if ( AGN_safezone_Inngame_Debug ) then { systemChat ("[AGN] DEBUG - GODMODE OFF"); };
 	};
+
+	//check if anti spam is on
 	if (AGN_safeZoneAntispam )then{
-			
-			[2] execVM "scripts\timer.sqf";//starttimer
-			//check if player has entered safezone recently
-			if (AGN_enteredSafezone) then{
-				//check if time limt is up and message player accordingly
-				if (timesover) then{
-					//let player know time is over
-					if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
-					//reset variables
-					AGN_enteredSafezone = false;
-					timesover = false;
-				};
-			};
+		//check if player has entered safezone recently
+		if (AGN_enteredSafezone) then{
+		timercounting = true;
+			if ( timercounting ) then {
+			if ( AGN_safezone_Inngame_Debug ) then { systemChat ("Timer started CORRECTLY"); };
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You must wait 2 Minutes before godmode is reapplied!.");};
+				sleep 60;
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - 1 minute remaining.");};
+				sleep 60;
+				AGN_enteredSafezone = false;
+				timercounting = false;
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
+			}else{
+				if ( AGN_safezone_Inngame_Debug ) then { systemChat ("Timer started FAILOVER"); };
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You must wait 2 Minutes before godmode is reapplied!.");};
+				sleep 60;
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - 1 minute remaining.");};
+				sleep 60;
+				AGN_enteredSafezone = false;
+				timercounting = false;
+				if ( AGN_safeZoneMessages ) then { systemChat ("[AGN] Antispam - You will now be protected when entering trader zones.");};
+			};			
 		};
+	};
 	
+	if ( AGN_safezone_Inngame_Debug ) then { systemChat ("[AGN] DEBUG - END LOOP"); };
 	_inSafezoneFinished = true;
 };
